@@ -20,7 +20,6 @@ import data_process.Comparison;
 import data_process.DoSomething;
 import data_process.Europe;
 import data_process.InfoStore;
-import data_process.Statistics;
 import display.EvenOddRenderer;
 
 import javax.swing.*;
@@ -333,8 +332,7 @@ public class Lists implements ItemListener,ActionListener
 	    f.pack();
 	    f.setExtendedState(Frame.MAXIMIZED_BOTH );
 	    f.setVisible(true);
-	    statistics = new Statistics();
-	    ds = new DoSomething(statistics);
+		ds = new DoSomething();
 	}
 	public ArrayList<String> getmsg(Element str, int count, Document doc, String date) throws IOException
 	{
@@ -391,7 +389,7 @@ public class Lists implements ItemListener,ActionListener
   	  		team2  = str.select("a").get(2).text();
   		 }
   		 String index;
-  		 if(leixing != 1 & leixing != 5 & leixing != 6)
+  		 if(leixing != 1 && leixing != 5 && leixing != 6)
   			 index = str.select("td").get(0).text();
   		 else
   			 index = count + "";
@@ -453,7 +451,7 @@ public class Lists implements ItemListener,ActionListener
   		 do{
   			 Date = (String) choice.getSelectedItem();
   			 //System.out.println("Get_Data");
- 		 }while(Date == null & leixing != 1);
+ 		 }while(Date == null && leixing != 1);
  		 switch(leixing)
  		 {
  		 case 1 : Path+="完整版\\";break;
@@ -498,7 +496,7 @@ public class Lists implements ItemListener,ActionListener
 		 }
 
 		 //******************************
-		 InfoStore Temp = new InfoStore(comp);
+		 InfoStore Temp = new InfoStore(comp,index,time,team1,team2,score1,score2,state);
 		 Temp.zp = Fx.rankz;
 		 Temp.kp = Fx.rankk;
 		 Temp.WiliamD = Oz.Company_state("威廉希尔", "nd");
@@ -534,18 +532,18 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p2f + "个");
 		 double g_p2g = Yz.Match_Condition(10, "np=0");
 		 rowdata.add((int)g_p2g + "个");
-		 if(p2a.equals("负") & p2b.equals("负") & p2c.equals("胜") & g_p2d > 3.40 & g_p2e > 5 &
-				 g_p2f > 5 & g_p2g > 2){
+		 if(p2a.equals("负") && p2b.equals("负") && p2c.equals("胜") && g_p2d > 3.40 && g_p2e > 5 &
+				 g_p2f > 5 && g_p2g > 2){
  			 if(colc == "") colc = "Z4"; else colc += "、Z4";
 		 }
   		 //项目3-S1
 		 double g_p3a = F[0];
 		 rowdata.add((int)g_p3a + "场");
  		 double g_p3b = Fx.Match_Condition((int)F[0], "d1");
- 		 rowdata.add(g_p3b == F[0] & F[0]!=0? "Yes":"No");
+ 		 rowdata.add(g_p3b == F[0] && F[0]!=0? "Yes":"No");
  		 double g_p3c = Dx.Match_Condition(10, "np<3.5&1.00<nd");
  		 rowdata.add((int)g_p3c + "个");
- 		 if(g_p3a > 2 & g_p3b == F[0] & g_p3c >= 4){
+ 		 if(g_p3a > 2 && g_p3b == F[0] && g_p3c >= 4){
  			 if(colc == "") colc = "S1"; else colc += "、S1";
  		 }
  		 //项目4-S2
@@ -562,14 +560,14 @@ public class Lists implements ItemListener,ActionListener
 		 String p4f = Fx.Get_SF("d5", 0);
 		 rowdata.add(p4f);
 		 double g_p4g = g_p3b;
-		 rowdata.add(g_p4g == F[0] & F[0] > 2? "Yes":"No");
-		 if((g_p4a > 4 | g_p4b > 4) & g_p4c > 10 & g_p4d < 5 & p4e.equals("大") & p4f.equals("大") & g_p4g == F[0]){
+		 rowdata.add(g_p4g == F[0] && F[0] > 2? "Yes":"No");
+		 if((g_p4a > 4 | g_p4b > 4) && g_p4c > 10 && g_p4d < 5 && p4e.equals("大") && p4f.equals("大") && g_p4g == F[0]){
 			 if(colc == "") colc = "S2"; else colc += "、S2";
 		 }
 		 //项目5-Z5
 		 double g_p5a = F[0];
 		 rowdata.add((int)g_p5a + "场");
-		 String p5b = Fx.Match_Condition((int)F[0], "s1") == 0 & F[0] > 3? "Yes" : "No";
+		 String p5b = Fx.Match_Condition((int)F[0], "s1") == 0 && F[0] > 3? "Yes" : "No";
 		 rowdata.add(p5b);
 		 String p5c = Fx.Get_SF("s5", 0);
 		 rowdata.add(p5c);
@@ -579,7 +577,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p5e + "个");
 		 double g_p5f = Yz.Match_Condition(10, "np=-0.5");
 		 rowdata.add((int)g_p5f + "个");
-		 if(g_p5a > 3 & p5b.equals("Yes") & p5c.equals("胜") & g_p5d == 2 & g_p5e > 5 & g_p5f > 7){
+		 if(g_p5a > 3 && p5b.equals("Yes") && p5c.equals("胜") && g_p5d == 2 && g_p5e > 5 && g_p5f > 7){
 			 if(colc == "") colc = "Z5"; else colc += "、Z5";
 		 }
 		 //项目6-Z9
@@ -591,7 +589,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p6c + "个");
 		 double g_p6d = Yz.Match_Condition(10, "np=-0.5");
 		 rowdata.add((int)g_p6d + "个");
-		 if(g_p6a == 0 & g_p6b > 2 & g_p6c > 5 & g_p6d > 7){
+		 if(g_p6a == 0 && g_p6b > 2 && g_p6c > 5 && g_p6d > 7){
 			 if(colc == "") colc = "Z9"; else colc += "、Z9";
 		 }
 		 //项目7-S3
@@ -599,7 +597,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p7a+"个");
 		 double g_p7b = Dx.Match_Condition(12, "np=2.25");
 		 rowdata.add((int)g_p7b+"个");
-		 if(g_p7a > 6 & g_p7b > 1){
+		 if(g_p7a > 6 && g_p7b > 1){
 			 if(colc == "") colc = "S3"; else colc += "、S3";
 		 }
 		 //项目8-PF12
@@ -613,7 +611,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p8d + "个");
 		 double g_p8e = Yz.Match_Condition(10, "np=-0.5&1.005<nlw");
 		 rowdata.add((int)g_p8e + "个");
-		 if((p8a.equals("胜")|p8a.equals("平")) & g_p8b == 3 & p8c.equals("负") & g_p8d > 5 & g_p8e > 4){
+		 if((p8a.equals("胜")|p8a.equals("平")) && g_p8b == 3 && p8c.equals("负") && g_p8d > 5 && g_p8e > 4){
 			 if(colc == "") colc = "PF12"; else colc += "、PF12";
 		 }
 		 
@@ -626,25 +624,23 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p9c+"个");
 		 double g_p9d = Fx.Match_Condition(2, "s5");
 		 rowdata.add((int)g_p9d+"个");
-		 if(g_p9a > 0 & g_p9b > 0 & g_p9c > 0 & g_p9d <= 1){
+		 if(g_p9a > 0 && g_p9b > 0 && g_p9c > 0 && g_p9d <= 1){
 			 if(colc == "") colc = "YQXP4"; else colc += "、YQXP4";
 		 }
-		 //项目10-ZP2
-		 double g_p10a = Fx.Match_Condition(2, "s5");
-		 rowdata.add((int)g_p10a + "场");
-		 double g_p10b = Fx.Match_Condition(2, "p4") + Fx.Match_Condition(2, "f4");
-		 rowdata.add((int)g_p10b + "场");
-		 double g_p10c = Oz.Match_Condition(10, "nl<pl");
-		 rowdata.add((int)g_p10c + "个");
+		 
+		 //项目10-Z19
+		 String p10a = Fx.Get_SF("s4", 0);
+		 rowdata.add(p10a);
+		 double g_p10b = Yz.Match_Condition(10, "1.10<plw");
+		 rowdata.add((int)g_p10b + "个");
+		 double g_p10c = Yz.Match_Condition(10, "1.005<nlw");
+		 rowdata.add((int)g_p10b + "个");
 		 double g_p10d = Yz.Match_Condition(10, "1.005<nrw");
 		 rowdata.add((int)g_p10d + "个");
-		 double g_p10e = Oz.Match_Condition(10, "nw=nd");
-		 rowdata.add((int)g_p10e + "个");
-		 double g_p10f = Fx.Match_Condition(3, "p1") + Fx.Match_Condition(3, "f1");
-		 rowdata.add((int)g_p10f + "个");
-		 if(g_p10a == 2 & g_p10b == 2 & g_p10c > 5 & g_p10d > 4 & g_p10e == 0 & g_p10f == 3){
-			 if(colc == "") colc = "ZP2"; else colc += "、ZP2";
+		 if(p10a.equals("负") && g_p10b > 1 && g_p10c > 4 && g_p10d > 1){
+			 if(colc == "") colc = "Z19"; else colc += "、Z19";
 		 }
+		 
 		 //项目11-QDBS3
 		 double g_p11a = Fx.Match_Condition(2, "p4") + Fx.Match_Condition(2, "f4");
 		 rowdata.add((int)g_p11a + "场");
@@ -654,15 +650,17 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p11c + "个");
 		 String g_p11d = Fx.Get_SF("s5", 0);
 		 rowdata.add(g_p11d);
-		 if(g_p11a == 2 & g_p11b > 4 & g_p11c > 5 & g_p11d.equals("负")){
+		 if(g_p11a == 2 && g_p11b > 4 && g_p11c > 5 && g_p11d.equals("负")){
 			 if(colc == "") colc = "QDBS3"; else colc += "、QDBS3";
 		 }
+		 
 		 //项目12-YK
 		 double g_p12a = Oz.Match_Condition(15, "pd<nd&nl<pl&nw=pw");
 		 rowdata.add((int)g_p12a+"个");
 		 if(g_p12a > 1){
 			 if(colc == "") colc = "YK"; else colc += "、YK";
 		 }
+		 
 		 //项目13-SF2
 		 double g_p13a = Yz.Company_state("澳门", "np");
 		 rowdata.add(g_p13a != -10? df.format(g_p13a) : "N/A");
@@ -670,29 +668,34 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add(g_p13b >= 0? df.format(g_p13b) : "N/A");
 		 double g_p13c = Oz.Company_state("威廉希尔", "nd");
 		 rowdata.add(g_p13c >= 0? df.format(g_p13c) : "N/A");
-		 if(g_p13a >= -0.25 & g_p13a <= 0.25 & g_p13b > 3.30 & g_p13c > 3.40){
+		 if(g_p13a >= -0.25 && g_p13a <= 0.25 && g_p13b > 3.30 && g_p13c > 3.40){
 			 if(colc == "") colc = "SF2"; else colc += "、SF2";
 		 }
-		 //项目14-PF14
-		 double g_p14a = Fx.Match_Condition(2, "s4");
-		 rowdata.add((int)g_p14a + "场");
-		 double g_p14b = Fx.Match_Condition(2, "f5");
-		 rowdata.add((int)g_p14b + "场");
-		 double g_p14c = Yz.Company_state("澳门", "np");
-		 rowdata.add(g_p14c != -10? df.format(g_p14c) : "N/A");
-		 double g_p14d = Yz.Company_state("澳门", "nlw");
-		 rowdata.add(g_p14d != -10? df.format(g_p14d) : "N/A");
-		 if(g_p14a == 2 & g_p14b == 2 & g_p14c >= -1 & g_p14c <= -0.5 & g_p14d > 1.005){
-			 if(colc == "") colc = "PF14"; else colc += "、PF14";
+		 
+		 //项目14-Z20
+		 double g_p14a = Oz.Match_Condition(10, "nw=nl");
+		 rowdata.add((int)g_p14a + "个");
+		 double g_p14b = Oz.Match_Condition(10, "pw<nw");
+		 rowdata.add((int)g_p14b + "个");
+		 double g_p14c = Oz.Match_Condition(10, "nd<=pd");
+		 rowdata.add((int)g_p14c + "个");
+		 double g_p14d = Oz.Match_Condition(10, "nl<pl");
+		 rowdata.add((int)g_p14d + "个");
+		 String p14e = Fx.Get_SF("s4", 0);
+		 rowdata.add(p14e);
+		 if(g_p14a >= 1 && g_p14b > 5 && g_p14c > 5 && g_p14d > 5 && p14e.equals("胜")){
+			 if(colc == "") colc = "Z20"; else colc += "、Z20";
 		 }
+		 
 		 //项目15-DF2
 		 double g_p15a = Dx.Match_Condition(20, "3.5<=pp");
 		 rowdata.add((int)g_p15a+"个");
 		 double g_p15b = Dx.Match_Condition(20, "3.5<=np&1.00<nd");
 		 rowdata.add((int)g_p15b+"个");
-		 if(g_p15a > 12 & g_p15b > 4){
+		 if(g_p15a > 12 && g_p15b > 4){
 			 if(colc == "") colc = "DF2"; else colc += "、DF2";
 		 } 
+		 
 		 //项目16-DD2
 		 double g_p16a = Fx.GP_Condition(5, "0<kg2");
 		 rowdata.add((int)g_p16a+"场");
@@ -702,7 +705,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p16c+"个");
 		 double g_p16d = Dx.Match_Condition(20, "1.00<nd");
 		 rowdata.add((int)g_p16d+"个");
-		 if(g_p16a >= 4 & g_p16b >= 4 & g_p16c > 1 & g_p16d > 10){
+		 if(g_p16a >= 4 && g_p16b >= 4 && g_p16c > 1 && g_p16d > 10){
 			 if(colc == "") colc = "DD2"; else colc += "、DD2";
 		 }
 				 
@@ -717,21 +720,23 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p17d+"场");
 		 double g_p17e = Fx.Match_Condition(5, "x2") + Fx.Match_Condition(5, "x3");
 		 rowdata.add((int)g_p17e+"场");
-		 if(g_p17a >= 4 & g_p17b >= 4 & g_p17c >= 5 & (g_p17d > 4 | g_p17e >= 8)){
+		 if(g_p17a >= 4 && g_p17b >= 4 && g_p17c >= 5 && (g_p17d > 4 | g_p17e >= 8)){
 			 if(colc == "") colc = "DFF"; else colc += "、DFF";
 		 }
 		 
-		 //项目18-ZP17
-		 double g_p18a = Fx.Series(10, "s5");
-		 rowdata.add((int)g_p18a + "场");
-		 double g_p18b = Fx.Series(10, "f4");
-		 rowdata.add((int)g_p18b + "场");
-		 String g_p18c = Fx.Get_SF("s1", 0);
-		 rowdata.add(g_p18c);
-		 double g_p18d = Yz.Match_Condition(10, "np=0.5");
+		 //项目18-K1
+		 double g_p18a = Oz.Match_Condition(10, "nw=nl");
+		 rowdata.add((int)g_p18a + "个");
+		 double g_p18b = Oz.Match_Condition(10, "nw<pw");
+		 rowdata.add((int)g_p18b + "个");
+		 double g_p18c = Oz.Match_Condition(10, "nd<=pd");
+		 rowdata.add((int)g_p18c + "个");
+		 double g_p18d = Oz.Match_Condition(10, "pl<nl");
 		 rowdata.add((int)g_p18d + "个");
-		 if(g_p18a >= 2 & g_p18b >= 2 & g_p18c.equals("负") & g_p18d > 3){
-			 if(colc == "") colc = "ZP17"; else colc += "、ZP17";
+		 String p18e = Fx.Get_SF("s5", 0);
+		 rowdata.add(p18e);
+		 if(g_p18a >= 1 && g_p18b > 5 && g_p18c > 5 && g_p18d > 5 && p18e.equals("胜")){
+			 if(colc == "") colc = "K1"; else colc += "、K1";
 		 }
 				 
  		 //项目19-Z1
@@ -743,7 +748,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p19c+"个");
 		 double g_p19d = Yz.Match_Condition(10, "1.005<nlw");
 		 rowdata.add((int)g_p19d+"个");
-		 if((int)g_p19a > 5 & g_p19b == 5 & g_p19c >= 1 & g_p19d < 2){
+		 if((int)g_p19a > 5 && g_p19b == 5 && g_p19c >= 1 && g_p19d < 2){
 			 if(colc == "") colc = "Z1"; else colc += "、Z1";
 		 }
 				 
@@ -754,27 +759,21 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add(g_p20b != -10? df.format(g_p20b):"-");
 		 double g_p20c = Oz.Company_state("Interwetten", "nd");
 		 rowdata.add(df.format(g_p20c));
-		 if(g_p20a == 0 & g_p20b >= 1.300 & g_p20c >=3.40){
+		 if(g_p20a == 0 && g_p20b >= 1.300 && g_p20c >=3.40){
 			 if(colc == "") colc = "ZP3"; else colc += "、ZP3";
 		 }
 		 
-		 //项目21-F
-		 double g_p21a = 6-Fx.Match_Condition(6, "f2");
-		 rowdata.add((int)g_p21a+"场");
-		 double g_p21b = 6-Fx.Match_Condition(6, "s3");
-		 rowdata.add((int)g_p21b+"场");
-		 double g_p21c = Oz.Match_Condition(10, "2.00<nw&3.30<nd");
-		 rowdata.add((int)g_p21c+"个");
-		 double g_p21d = Yz.Match_Condition(10, "1.005<nlw");
-		 rowdata.add((int)g_p21d+"个");
-		 double g_p21e = Fx.Match_Condition(2, "s4");
-		 rowdata.add((int)g_p21e+"场");
-		 double g_p21f = Oz.Match_Condition(10, "nl<nd");
-		 rowdata.add((int)g_p21f+"个");
-		 double g_p21g = AveO10[2];
-		 rowdata.add(df.format(g_p21g));
-		 if(g_p21a >= 5 & g_p21b >= 5 & g_p21c > 5 & g_p21d >= 2 & g_p21e == 2 & g_p21f > 4 & g_p21g < 2.75){
-			 if(colc == "") colc = "F"; else colc += "、F";
+		 //项目21-Z21
+		 String p21a = Fx.Get_SF("f4", 0);
+		 rowdata.add(p21a);
+		 String p21b = Fx.Get_SF("s5", 0);
+		 rowdata.add(p21b);
+		 double g_p21c = Yz.Match_Condition(10, "1.005<nlw");
+		 rowdata.add((int)g_p21c + "个");
+		 double g_p21d = Y[9];
+		 rowdata.add((int)g_p21d + "个");
+		 if(p21a.equals("负") && p21b.equals("胜") && g_p21c > 2 && g_p21d > 5){
+			 if(colc == "") colc = "Z21"; else colc += "、Z21";
 		 }
 		 
 		 //项目22-Z6
@@ -788,7 +787,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p22d+"个");
 		 double g_p22e = Yz.Match_Condition(10, "1.005<nlw");
 		 rowdata.add((int)g_p22e+"个");
-		 if(g_p22a >= 3 & g_p22b == 5 & g_p22c > 2 & g_p22d >= 1 & g_p22e > 1){
+		 if(g_p22a >= 3 && g_p22b == 5 && g_p22c > 2 && g_p22d >= 1 && g_p22e > 1){
 			 if(colc == "") colc = "Z6"; else colc += "、Z6";
 		 }
 				 
@@ -807,7 +806,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p23f+"场");
 		 String p23g = Fx.Get_SF("s5", 0);
 		 rowdata.add(p23g);
-		 if(g_p23a >= 1.80 & g_p23a <= 2.00 & g_p23b > 7 & g_p23c > 0.6 & g_p23d >= 1 & g_p23e >= 1 & g_p23f >= 3 & p23g.equals("胜")){
+		 if(g_p23a >= 1.80 && g_p23a <= 2.00 && g_p23b > 7 && g_p23c > 0.6 && g_p23d >= 1 && g_p23e >= 1 && g_p23f >= 3 && p23g.equals("胜")){
 			 if(colc == "") colc = "PB"; else colc += "、PB";
 		 }
 		 
@@ -820,7 +819,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p24c + "个");
 		 double g_p24d = l;
 		 rowdata.add(df.format(g_p24d));
-		 if(g_p24a > 5 & g_p24b > 5 & g_p24c >= 2 & g_p24d > 4.00){
+		 if(g_p24a > 5 && g_p24b > 5 && g_p24c >= 2 && g_p24d > 4.00){
 			 if(colc == "") colc = "KS1"; else colc += "、KS1";
 		 }
 		 
@@ -829,26 +828,30 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p25a + "场");
 		 double g_p25b = Oz.Match_Condition(10, "3.49<nd");
 		 rowdata.add((int)g_p25b + "个");
-		 if(g_p25a >= 3 & g_p25b > 2){
+		 if(g_p25a >= 3 && g_p25b > 2){
 			 if(colc == "") colc = "SF5"; else colc += "、SF5";
 		 }
-			
-		 //项目26-P2
-		 double wlnd = Oz.Company_state("威廉希尔", "nd");
-		 double wlpd = Oz.Company_state("威廉希尔", "pd");
-		 double g_p26a = wlnd - wlpd;
-		 rowdata.add(wlnd != -10 & wlpd != -10? df.format(g_p26a) : "-");
-		 double g_p26b = Yz.Match_Condition(10, "1.005<nlw");
-		 rowdata.add((int)g_p26b + "个");
-		 if(g_p26a >= 0.4 & g_p26b > 5){
-			 if(colc == "") colc = "P2"; else colc += "、P2";
+		 
+		 //项目26-Z22
+		 String p26a = Fx.Get_SF("f4", 0);
+		 rowdata.add(p26a);
+		 String p26b = Fx.Get_SF("s5", 0);
+		 rowdata.add(p26b);
+		 double g_p26c = Oz.Match_Condition(10, "nw<pw");
+		 rowdata.add((int)g_p26c + "个");
+		 double g_p26d = Yz.Match_Condition(10, "1.005<nlw");
+		 rowdata.add((int)g_p26d + "个");
+		 double g_p26e = Yz.Match_Condition(10, "1.005<nrw");
+		 rowdata.add((int)g_p26e + "个");
+		 if(p26a.equals("负") && p26b.equals("胜") && g_p26c > 5 && g_p26d > 5 && g_p26e > 2){
+			 if(colc == "") colc = "Z22"; else colc += "、Z22";
 		 }
 		 
 		 //项目27-2P1
 		 rowdata.add(Temp.Bet365P == -10? "-":PanK[(int)((Temp.Bet365P + 4) / 0.25)]);
 		 rowdata.add(df.format(Temp.WiliamD)+"");
 		 
-		 //项目28-K3
+		 //项目28-PF4
 		 double g_p28a = Fx.Get_List("kks");
 		 rowdata.add(g_p28a >= 0? (int)g_p28a + "场" : "-");
 		 double g_p28b = Oz.Match_Condition(10, "nl<pl");
@@ -857,8 +860,8 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p28c + "个");
 		 double g_p28d = Yz.Match_Condition(10, "np=0.25&1.005<nrw");
 		 rowdata.add((int)g_p28d + "个");
-		 if(g_p28a == 0 & g_p28b > 7 & g_p28c > 4 & g_p28d > 6){
-			 if(colc == "") colc = "K3"; else colc += "、K3";
+		 if(g_p28a == 0 && g_p28b > 7 && g_p28c > 4 && g_p28d > 6){
+			 if(colc == "") colc = "PF4"; else colc += "、PF4";
 		 }
 		 
 		 //项目29-PF1
@@ -883,7 +886,7 @@ public class Lists implements ItemListener,ActionListener
 		 double g_p29j = Math.abs(Fx.Get_Rank("z")-Fx.Get_Rank("k"));
 		 if(Fx.Get_Rank("z")*Fx.Get_Rank("k") == 0) g_p29j = -1;
 		 rowdata.add((int)g_p29j+"");
-		 if(g_p29a >= 8 & g_p29b > 2.00 & g_p29c < 3.30 & g_p29d >= 2 & g_p29e >= 7 & g_p29f >= 2 & g_p29g == 4 & g_p29h > 3.00 & g_p29i > 3.00 & g_p29j > 5){
+		 if(g_p29a >= 8 && g_p29b > 2.00 && g_p29c < 3.30 && g_p29d >= 2 && g_p29e >= 7 && g_p29f >= 2 && g_p29g == 4 && g_p29h > 3.00 && g_p29i > 3.00 && g_p29j > 5){
 			 if(colc == "") colc = "PF1"; else colc += "、PF1";
 		 }
 		 
@@ -896,7 +899,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add(g_p30c);
 		 double g_p30d = Yz.Match_Condition(10, "np=-1&1.005<nlw");
 		 rowdata.add((int)g_p30d + "个");
-		 if(g_p30a.equals("胜") & g_p30b >= 3 & g_p30c.equals("负") & g_p30d > 4){
+		 if(g_p30a.equals("胜") && g_p30b >= 3 && g_p30c.equals("负") && g_p30d > 4){
 			 if(colc == "") colc = "YQXP2"; else colc += "、YQXP2";
 		 }
 		 
@@ -907,7 +910,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p31b + "个");
 		 double g_p31c = Yz.Match_Condition(10, "np=-0.25&1.005<nrw");
 		 rowdata.add((int)g_p31c + "个");
-		 if(g_p31a == 0 & g_p31b > 7 & g_p31c > 7){
+		 if(g_p31a == 0 && g_p31b > 7 && g_p31c > 7){
 			 if(colc == "") colc = "PF10"; else colc += "、PF10";
 		 }
 		 
@@ -924,7 +927,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p32e + "个");
 		 double g_p32f = Oz.Match_Condition(10, "nd=nl");
 		 rowdata.add((int)g_p32f + "个");
-		 if(g_p32a == 3 & g_p32b == 3 & g_p32c == 3 & g_p32d > 4 & g_p32e > 5 & g_p32f > 2){
+		 if(g_p32a == 3 && g_p32b == 3 && g_p32c == 3 && g_p32d > 4 && g_p32e > 5 && g_p32f > 2){
 			 if(colc == "") colc = "Z15"; else colc += "、Z15";
 		 }
 		 
@@ -932,7 +935,7 @@ public class Lists implements ItemListener,ActionListener
 		 double p33a1 = Oz.Company_state("Ladbrokes (立博)", "nd");
 		 double p33a2 = Oz.Company_state("威廉希尔", "nd");
 		 double g_p33a = p33a1 - p33a2;
-		 rowdata.add(p33a1 != -10 & p33a2 != -10? df.format(g_p33a):"N/A"); // >0.35
+		 rowdata.add(p33a1 != -10 && p33a2 != -10? df.format(g_p33a):"N/A"); // >0.35
 		 double g_p33b = Oz.Match_Condition(10, "nw<pw");
 		 rowdata.add((int)g_p33b + "个");
 		 double g_p33c = Y[7];
@@ -943,7 +946,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add(g_p33e);
 		 String g_p33f = Fx.Get_SF("s5", 0);
 		 rowdata.add(g_p33f);
-		 if(g_p33a > 0.35 && g_p33b > 5 & g_p33c > 5 & g_p33d >= 1 & (g_p33e.equals("平") | g_p33e.equals("负")) & (g_p33f.equals("平") | g_p33f.equals("负"))){
+		 if(g_p33a > 0.35 && g_p33b > 5 && g_p33c > 5 && g_p33d >= 1 && (g_p33e.equals("平") | g_p33e.equals("负")) && (g_p33f.equals("平") | g_p33f.equals("负"))){
 			 if(colc == "") colc = "K"; else colc += "、K";
 		 }
 		 
@@ -953,7 +956,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p34a+"个");
 		 double g_p34b = Dx.Match_Condition(15, "1.000<=nd");
 		 rowdata.add((int)g_p34b+"个");
-		 if(g_p34a >= 7 & g_p34b >= 7){
+		 if(g_p34a >= 7 && g_p34b >= 7){
 			 if(colc == "") colc = "YQXP1"; else colc += "、YQXP1";
 		 }
 				 
@@ -966,7 +969,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p35c+"个");
 		 double g_p35d = Oz.Match_Condition(20, "pw<nw&nd<pd&nl<pl");
 		 rowdata.add((int)g_p35d+"个");
-		 if(g_p35a == 4 & g_p35b == 5 & g_p35c > 4 & g_p35d > 8){
+		 if(g_p35a == 4 && g_p35b == 5 && g_p35c > 4 && g_p35d > 8){
 			 if(colc == "") colc = "SF1"; else colc += "、SF1";
 		 }
 		 
@@ -981,7 +984,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p36d + "个");
 		 double g_p36e = Yz.Match_Condition(10, "1.005<nlw");
 		 rowdata.add((int)g_p36e + "个");
-		 if(g_p36a.equals("胜") & g_p36b.equals("负") & g_p36c.equals("胜") & g_p36d > 5 & g_p36e > 4){
+		 if(g_p36a.equals("胜") && g_p36b.equals("负") && g_p36c.equals("胜") && g_p36d > 5 && g_p36e > 4){
 			 if(colc == "") colc = "YQXP3"; else colc += "、YQXP3";
 		 }
 				 
@@ -994,7 +997,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p37c+"场");
 		 double g_p37d = Fx.Match_Condition(5, "f5");
 		 rowdata.add((int)g_p37d+"场");
-		 if(g_p37a >= 3 & g_p37b >= 1 & g_p37c >= 3 & g_p37d >= 3){
+		 if(g_p37a >= 3 && g_p37b >= 1 && g_p37c >= 3 && g_p37d >= 3){
 			 if(colc == "") colc = "K2"; else colc += "、K2";
 		 }
 		 
@@ -1005,23 +1008,25 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p38b + "个");
 		 double g_p38c = Yz.Match_Condition(10, "1.005<nlw");
 		 rowdata.add((int)g_p38c + "个");
-		 if(g_p38a < 2.0 & g_p38a > 0 & g_p38b > 1 & g_p38c > 2){
+		 if(g_p38a < 2.0 && g_p38a > 0 && g_p38b > 1 && g_p38c > 2){
 			 if(colc == "") colc = "Z16"; else colc += "、Z16";
 		 }
-				 
-		 //项目39-PFP
-		 double g_p39a = Fx.Match_Condition(2, "s5");
-		 rowdata.add((int)g_p39a+"场");
-		 double g_p39b = Fx.Match_Condition(2, "s3");
-		 rowdata.add((int)g_p39b+"场");
-		 double g_p39c = Oz.Match_Condition(20, "nl<pl");
-		 rowdata.add((int)g_p39c+"个");
-		 double g_p39d = Yz.Match_Condition(12, "pp=0.25&np=0.5");
-		 rowdata.add((int)g_p39d+"个");
-		 double g_p39e = Yz.Match_Condition(12, "1.000<nrw");
-		 rowdata.add((int)g_p39e+"个");
-		 if(g_p39a == 2 & g_p39b == 2 & g_p39c > 12 & g_p39d > 5 & g_p39e > 5){
-			 if(colc == "") colc = "PFP"; else colc += "、PFP";
+		 
+		 //项目39-Z23
+		 String p39a = Fx.Get_SF("f4", 0);
+		 rowdata.add(p39a);
+		 String p39b = Fx.Get_SF("s5", 0);
+		 rowdata.add(p39b);
+		 double g_p39c = Yz.Match_Condition(10, "1.005<nrw");
+		 rowdata.add((int)g_p39c + "个");
+		 double g_p39d = Y[10];
+		 rowdata.add((int)g_p39d + "个");
+		 double g_p39e = Oz.Match_Condition(10, "nw=nl");
+		 rowdata.add((int)g_p39e + "个");
+		 double g_p39f = Oz.Match_Condition(10, "nw=nd");
+		 rowdata.add((int)g_p39f + "个");
+		 if(p39a.equals("负") && p39b.equals("胜") && g_p39c > 5 && g_p39d > 5 && g_p39e >= 1 && g_p39f >= 1){
+			 if(colc == "") colc = "Z23"; else colc += "、Z23";
 		 }
 				 
 		 //项目40-PF2
@@ -1035,7 +1040,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p40d+"个");
 		 double g_p40e = Yz.Match_Condition(12, "1.000<nlw");
 		 rowdata.add((int)g_p40e+"个");
-		 if(g_p40a == 3 & p40b.equals("负") & g_p40c > 12 & g_p40d > 5 & g_p40e > 5){
+		 if(g_p40a == 3 && p40b.equals("负") && g_p40c > 12 && g_p40d > 5 && g_p40e > 5){
 			 if(colc == "") colc = "PF2"; else colc += "、PF2";
 		 }
 				 
@@ -1046,7 +1051,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add(df.format(g_p41b)); //>2.0);
 		 double g_p41c = Oz.Match_Condition(10, "3.50<nd");
 		 rowdata.add((int)g_p41c+"个");
-		 if(g_p41a > 2.00 & g_p41b > 2.00 & g_p41c >= 2){
+		 if(g_p41a > 2.00 && g_p41b > 2.00 && g_p41c >= 2){
 			 if(colc == "") colc = "PG"; else colc += "、PG";
 		 }
 				 
@@ -1057,7 +1062,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add(df.format(g_p42b)); //>2.0);
 		 double g_p42c = Oz.Match_Condition(10, "3.80<=nd");
 		 rowdata.add((int)g_p42c+"个");
-		 if(g_p42a > 1.70 & g_p42b > 2.00 & g_p42c >= 2){
+		 if(g_p42a > 1.70 && g_p42b > 2.00 && g_p42c >= 2){
 			 if(colc == "") colc = "PG2"; else colc += "、PG2";
 		 }
 		 
@@ -1074,7 +1079,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p43e + "个");
 		 double g_p43f = Yz.Match_Condition(10, "1.005<nlw");
 		 rowdata.add((int)g_p43f + "个");
-		 if(g_p43a == 2 & g_p43b == 2 & g_p43c > 10 & g_p43d > 3.30 & g_p43e >= 5 & g_p43f >= 5){
+		 if(g_p43a == 2 && g_p43b == 2 && g_p43c > 10 && g_p43d > 3.30 && g_p43e >= 5 && g_p43f >= 5){
 			 if(colc == "") colc = "KS"; else colc += "、KS";
 		 }
 		 
@@ -1149,25 +1154,40 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p47d + "个");
 		 double g_p47e = Oz.Match_Condition(10, "nw<pw");
 		 rowdata.add((int)g_p47e + "个");
-		 if(g_p47a == 2 & g_p47b.equals("胜") & g_p47c >= 2 & g_p47d > 4 & g_p47e > 5){
+		 if(g_p47a == 2 && g_p47b.equals("胜") && g_p47c >= 2 && g_p47d > 4 && g_p47e > 5){
 			 if(colc == "") colc = "Z12"; else colc += "、Z12";
 		 }
-				 
-		 //项目48-ZP8
-		 double g_p48a = Oz.Match_Condition(15, "nw<pw&pd<nd&pl<nl");
-		 rowdata.add((int)g_p48a+"个");
-		 double g_p48b = Yz.Match_Condition(15, "np<pp&1.000<=nlw&1.000<=plw");
-		 rowdata.add((int)g_p48b+"个");
-		 double g_p48c = 3-Fx.Match_Condition(3, "s5");
-		 rowdata.add((int)g_p48c+"场");
-		 double g_p48d = Fx.Match_Condition(3, "s4");
-		 rowdata.add((int)g_p48d+"场");
-		 String p48e = Fx.Get_SF("s5", 0);
-		 rowdata.add(p48e);
-		 String p48f = Fx.Get_SF("s4", 0);
-		 rowdata.add(p48f);
-		 if(g_p48a > 6 & g_p48b > 4 & g_p48c >= 2 & g_p48d >= 2 & p48e.equals("负") & p48f.equals("胜")){
-			 if(colc == "") colc = "ZP8"; else colc += "、ZP8";
+		 
+		 //项目48-Z24
+		 String p48a = Fx.Get_SF("f4", 0);
+		 rowdata.add(p48a);
+		 String p48b = Fx.Get_SF("f5", 0);
+		 rowdata.add(p48b);
+		 double g_p48c = Yz.Match_Condition(10, "1.005<nlw");
+		 rowdata.add((int)g_p48c + "个");
+		 double g_p48d = Y[9];
+		 rowdata.add((int)g_p48d + "个");
+		 if(p48a.equals("负") && p48b.equals("负") && g_p48c < 1 && g_p48d > 5){
+			 if(colc == "") colc = "Z24"; else colc += "、Z24";
+		 }
+		 
+		 //项目49-Z25
+		 String p49a = Fx.Get_SF("f4", 0);
+		 rowdata.add(p49a);
+		 String p49b = Fx.Get_SF("p5", 0);
+		 rowdata.add(p49b);
+		 double g_p49c = Oz.Match_Condition(10, "nl<pl");
+		 rowdata.add((int)g_p49c + "个");
+		 double g_p49d = Yz.Match_Condition(10, "1.005<nrw");
+		 rowdata.add((int)g_p49d + "个");
+		 double g_p49e = Yz.Match_Condition(10, "np=-0.5&1.005<nlw");
+		 rowdata.add((int)g_p49e + "个");
+		 double g_p49f1 = Oz.Company_state("威廉希尔", "nd");
+		 double g_p49f2 = Oz.Company_state("立博", "nd");
+		 double g_p49f = g_p49f1 != 0 && g_p49f2 != 0? g_p49f1 - g_p49f2 : -1;
+		 rowdata.add(g_p49f1 != 0 && g_p49f2 != 0? df.format(g_p49f):"-");
+		 if(p49a.equals("负") && p49b.equals("平") && g_p49c > 5 && g_p49d > 4 && g_p49e > 4 && g_p49f > 0){
+			 if(colc == "") colc = "Z25"; else colc += "、Z25";
 		 }
 		 
 		 //项目50-PF9
@@ -1177,7 +1197,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p50b + "个");
 		 double g_p50c = Oz.Match_Condition(10, "pw<nw");
 		 rowdata.add((int)g_p50c + "个");
-		 if(g_p50a == 2 & g_p50b >= 2 & g_p50c > 5){
+		 if(g_p50a == 2 && g_p50b >= 2 && g_p50c > 5){
 			 if(colc == "") colc = "PF9"; else colc += "、PF9";
 		 }
 				 
@@ -1188,7 +1208,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p51b+"个");
 		 double g_p51c = Fx.Match_Condition(4, "d4");
 		 rowdata.add((int)g_p51c+"个");
-		 if(g_p51a > 6 & g_p51b > 7 & g_p51c >= 2){
+		 if(g_p51a > 6 && g_p51b > 7 && g_p51c >= 2){
 			 if(colc == "") colc = "2QXPSP"; else colc += "、2QXPSP";
 		 }
 		 
@@ -1199,7 +1219,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p52b + "个");
 		 double g_p52c = Yz.Match_Condition(10, "np=0&nlw<0.8");
 		 rowdata.add((int)g_p52c + "个");
-		 if(g_p52a == 3 & g_p52b > 2 & g_p52c >= 1){
+		 if(g_p52a == 3 && g_p52b > 2 && g_p52c >= 1){
 			 if(colc == "") colc = "Z14"; else colc += "、Z14";
 		 }
 				 
@@ -1214,45 +1234,24 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add(p53d);
 		 String p53e = Fx.Get_SF("f5", 0);
 		 rowdata.add(p53e);
-		 if(g_p53a >= 5 & g_p53b > 3 & p53c.equals("胜") & p53d.equals("胜") & p53e.equals("负")){
+		 if(g_p53a >= 5 && g_p53b > 3 && p53c.equals("胜") && p53d.equals("胜") && p53e.equals("负")){
 			 if(colc == "") colc = "ZP4"; else colc += "、ZP4";
 		 }
 		 
-		 //项目54-PF15
-		 double g_p54a = Fx.Series(10, "s4");
-		 rowdata.add((int)g_p54a +"场");
-		 double g_p54b = Fx.Series(10, "s5");
-		 rowdata.add((int)g_p54b +"场");
-		 double g_p54c = Fx.Series(10, "s1");
-		 rowdata.add((int)g_p54c +"场");
-		 double g_p54d = Oz.Match_Condition(10, "nw<pw");
-		 rowdata.add((int)g_p54d +"个");
-		 double g_p54e = Yz.Match_Condition(10, "1.005<nlw");
-		 rowdata.add((int)g_p54e +"个");
-		 double g_p54f = Y[8];
-		 rowdata.add((int)g_p54f +"个");
-		 if(g_p54a >= 2 & g_p54b >= 2 & g_p54c >= 2 & g_p54d > 5 & g_p54e >= 1 & g_p54f >= 1){
-			 if(colc == "") colc = "PF15"; else colc += "、PF15";
+		 //项目54-ZP20
+		 String p54a = Fx.Get_SF("f4", 0);
+		 rowdata.add(p54a);
+		 String p54b = Fx.Get_SF("s5", 0);
+		 rowdata.add(p54b);
+		 double g_p54c = Yz.Match_Condition(10, "1.005<nrw");
+		 rowdata.add((int)g_p54c + "个");
+		 double g_p54d = Y[10];
+		 rowdata.add((int)g_p54d + "个");
+		 if(p54a.equals("负") && p54b.equals("胜") && g_p54c > 5 && g_p54d > 5){
+			 if(colc == "") colc = "ZP20"; else colc += "、ZP20";
 		 }
 		 
-		 //项目55-PF16
-		 double g_p55a = Fx.Series(10, "s4");
-		 rowdata.add((int)g_p54a +"场");
-		 String g_p55b = Fx.Get_SF("s5", 0);
-		 rowdata.add(g_p55b);
-		 String g_p55c = Fx.Get_SF("s1", 0);
-		 rowdata.add(g_p55c);
-		 double g_p55d = Oz.Match_Condition(10, "nw<pw");
-		 rowdata.add((int)g_p54d +"个");
-		 double g_p55e = Yz.Match_Condition(10, "1.005<nlw");
-		 rowdata.add((int)g_p54e +"个");
-		 double g_p55f = w;
-		 rowdata.add(df.format(w));
-		 if(g_p55a >= 2 & (g_p55b.equals("胜") | g_p55b.equals("平")) & g_p55c.equals("胜") & g_p55d > 5 & g_p55e > 4 & g_p55f < 2.0 & g_p55f > 0){
-			 if(colc == "") colc = "PF16"; else colc += "、PF16";
-		 }
-		 
-		 //项目56-PF17
+		 //项目56-ZP24(QDXP)
 		 String g_p56a = Fx.Get_SF("s4", 0);
 		 rowdata.add(g_p56a);
 		 String g_p56b = Fx.Get_SF("s5", 0);
@@ -1265,9 +1264,9 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p56e + "个");
 		 double g_p56f = Y[8];
 		 rowdata.add((int)g_p56f + "个");
-		 if(g_p56a.equals("胜") & (g_p56b.equals("负") | g_p56b.equals("平")) & g_p56c <= 2 & g_p56c > 0 & g_p56d > 5 & 
-				 g_p56e >= 1 & g_p56f >= 1){
-			 if(colc == "") colc = "PF17"; else colc += "、PF17";
+		 if(g_p56a.equals("胜") && (g_p56b.equals("负") | g_p56b.equals("平")) && g_p56c <= 2 && g_p56c > 0 && g_p56d > 5 && 
+				 g_p56e >= 1 && g_p56f >= 1){
+			 if(colc == "") colc = "ZP24(QDXP)"; else colc += "、ZP24(QDXP)";
 		 }
 		 
 		 //项目57-Z17
@@ -1275,13 +1274,13 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add(g_p57a == -1? "N/A":(int)g_p57a + "");
 		 double g_p57b = Yz.Match_Condition(10, "pp=-0.25&plw<0.9&np=-0.75&1.005<nlw");
 		 rowdata.add((int)g_p57b + "个");
-		 if(g_p57a > 0 & g_p57a < 4 & g_p57b > 2){
+		 if(g_p57a > 0 && g_p57a < 4 && g_p57b > 2){
 			 if(colc == "") colc = "Z17"; else colc += "、Z17";
 		 }
 				 
 		 //项目58-ZP5
 		 double g_p58a = Fx.Match_Condition((int)F[0], "f1");
-		 rowdata.add((int)g_p58a == 0 & F[0] > 2? "Yes":"No");
+		 rowdata.add((int)g_p58a == 0 && F[0] > 2? "Yes":"No");
 		 double g_p58b = g_p53a;
 		 rowdata.add((int)g_p58b+"个");
 		 double g_p58c = Oz.Match_Condition(10, "3.5<=nd");
@@ -1294,7 +1293,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add(p58f);
 		 String p58g = Fx.Get_SF("s4", 0);
 		 rowdata.add(p58g);
-		 if(g_p58a == 0 & F[0] > 2 & g_p58b >= 6 & g_p58c >= 1 & g_p58d > 4 & g_p58e > 1 & p58f.equals("负") & p58g.equals("胜")){
+		 if(g_p58a == 0 && F[0] > 2 && g_p58b >= 6 && g_p58c >= 1 && g_p58d > 4 && g_p58e > 1 && p58f.equals("负") && p58g.equals("胜")){
 			 if(colc == "") colc = "ZP5"; else colc += "、ZP5";
 		 }
 		 
@@ -1309,32 +1308,8 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add(df.format(g_p59d));
 		 double g_p59e = Oz.Match_Condition(20, "nd=nl");
 		 rowdata.add((int)g_p59e+"个");
-		 if(g_p59a > 5 & g_p59b > 5 & g_p59c >= 2 & g_p59d > 4.00 & g_p59e > 1){
+		 if(g_p59a > 5 && g_p59b > 5 && g_p59c >= 2 && g_p59d > 4.00 && g_p59e > 1){
 			 if(colc == "") colc = "KS2"; else colc += "、KS2";
-		 }
-		 
-		 //项目60-KS3
-		 double g_p60a = Oz.Match_Condition(10, "nw<pw&pd<nd&nl<pl");
-		 rowdata.add((int)g_p60a+"个");
-		 double g_p60b = Oz.Match_Condition(10, "nd=nl");
-		 rowdata.add((int)g_p60b+"个");
-		 double g_p60c = Yz.Match_Condition(10, "1.005<nlw");
-		 rowdata.add((int)g_p60c+"个");
-		 if(g_p60a >= 1 & g_p60b > 1 & g_p60c > 1){
-			 if(colc == "") colc = "KS3"; else colc += "、KS3";
-		 }
-				 
-		 //项目61-P7
-		 double g_p61a = Fx.Series(10, "s5");
-		 rowdata.add((int)g_p61a+"场");
-		 double g_p61b = Yz.Match_Condition(12, "np=0.5&1.005<nrw");
-		 rowdata.add((int)g_p61b+"个");
-		 double g_p61c = Oz.Match_Condition(10, "nl<pl");
-		 rowdata.add((int)g_p61c+"个");
-		 double g_p61d = Oz.Match_Condition(10, "nw<=nd");
-		 rowdata.add((int)g_p61d+"个");
-		 if(g_p61a >= 4 & g_p61b >= 5 & g_p61c >= 6 & g_p61d >= 5){
-			 if(colc == "") colc = "P7"; else colc += "、P7";
 		 }
 		 
 		 //项目62-Z18
@@ -1344,7 +1319,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add(g_p62b == -1? "N/A":(int)g_p62b + ""); 
 		 double g_p62c = Yz.Match_Condition(10, "pp=-0.5&1.005<plw&np=-0.75&1.005<nlw");
 		 rowdata.add((int)g_p62c + "个");
-		 if(g_p62a == 3 & g_p62b > 0 & g_p62b < 4 & g_p62c > 2){
+		 if(g_p62a == 3 && g_p62b > 0 && g_p62b < 4 && g_p62c > 2){
 			 if(colc == "") colc = "Z18"; else colc += "、Z18";
 		 }
 		 
@@ -1357,7 +1332,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add(df.format(g_p63c)); //2.90<x<3.6);
 		 double g_p63d = Oz.Company_state("威廉希尔", "nl");
 		 rowdata.add(df.format(g_p63d)); //>1.8);
-		 if(g_p63a >= 3 & g_p63b > 0.3 & g_p63c > 2.90 & g_p63c < 3.60 & g_p63d > 1.80){
+		 if(g_p63a >= 3 && g_p63b > 0.3 && g_p63c > 2.90 && g_p63c < 3.60 && g_p63d > 1.80){
 			 if(colc == "") colc = "SF"; else colc += "、SF";
 		 }
 				 
@@ -1366,7 +1341,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p64a+"个");
 		 double g_p64b = D[2];
 		 rowdata.add((int)g_p64b+"个");
-		 if(g_p64a > 4 & g_p64b > 4){
+		 if(g_p64a > 4 && g_p64b > 4){
 			 if(colc == "") colc = "QDSP"; else colc += "、QDSP";
 		 }
 		 
@@ -1377,19 +1352,8 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p65b + "个");
 		 double g_p65c = Oz.Match_Condition(10, "nd=nl");
 		 rowdata.add((int)g_p65c + "个");
-		 if(g_p65a == 1 & g_p65b > 3 & g_p65c == 0){
+		 if(g_p65a == 1 && g_p65b > 3 && g_p65c == 0){
 			 if(colc == "") colc = "ZP6"; else colc += "、ZP6";
-		 }
-		 
-		 //项目67-F1
-		 double g_p67a = Fx.Get_Rank("zd");
-		 rowdata.add(g_p67a == -1? "N/A":(int)g_p67a + "");
-		 double g_p67b = Yz.Match_Condition(10, "np=-0.5");
-		 rowdata.add((int)g_p67b + "个");
-		 double g_p67c = Oz.Match_Condition(10, "nd=nl");
-		 rowdata.add((int)g_p67c + "个");
-		 if(g_p67a == 1 & g_p67b > 3 & g_p67c >= 1){
-			 if(colc == "") colc = "F1"; else colc += "、F1";
 		 }
 		  
 		 //项目68-QDBS2
@@ -1403,7 +1367,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p68d+"个");
 		 String p68e = Fx.Get_SF("s1", 0);
 		 rowdata.add(p68e);
-		 if(g_p68a >= 3 & g_p68b >= 3 & g_p68c >= 2 & g_p68d >= 2 & p68e.equals("胜")){
+		 if(g_p68a >= 3 && g_p68b >= 3 && g_p68c >= 2 && g_p68d >= 2 && p68e.equals("胜")){
 			 if(colc == "") colc = "QDBS2"; else colc += "、QDBS2";
 		 }
 				 
@@ -1426,8 +1390,8 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add(p70h);
 		 String p70i = Fx.Get_SF("s5", 0);
 		 rowdata.add(p70i);
-		 if(g_p70a >= 2 & g_p70b >= 1 & g_p70c >= 2 & p70d.equals("胜") & g_p70e >= 1 & g_p70f >= 2 & p70g.equals("负") &
-				 p70h.equals("负") & p70i.equals("胜")){
+		 if(g_p70a >= 2 && g_p70b >= 1 && g_p70c >= 2 && p70d.equals("胜") && g_p70e >= 1 && g_p70f >= 2 && p70g.equals("负") &&
+				 p70h.equals("负") && p70i.equals("胜")){
 			 if(colc == "") colc = "ZP13"; else colc += "、ZP13";
 		 }
 				 
@@ -1441,24 +1405,24 @@ public class Lists implements ItemListener,ActionListener
 		 double g_p71d = Oz.Company_state("威廉希尔", "nd");
 		 rowdata.add(df.format(g_p71d)); //3.49<=x<=3.8);
 		 double g_p71e = g_p19a;
-		 rowdata.add(g_p71e == F[0] & F[0] > 2? "Yes":"No");
+		 rowdata.add(g_p71e == F[0] && F[0] > 2? "Yes":"No");
 		 double g_p71f = Yz.Match_Condition(10, "1.005<nrw");
 		 rowdata.add((int)g_p71f + "个");
 		 String p71g = Fx.Get_SF("f5", 0);
 		 rowdata.add(p71g);
 		 double g_p71h = Oz.Match_Condition(10, "nl<pl&pd<nd");
 		 rowdata.add((int)g_p71h + "个");
-		 if(g_p71a > 2.00 & g_p71a < 4.60 & g_p71b >= 1.60 & g_p71b <= 2.10 & g_p71c >= 2 & g_p71d >= 3.49 & g_p71d <= 3.81 & 
-				 g_p71e == F[0] & F[0] > 2 & g_p71f > 3 & p71g.equals("胜") & g_p71h > 4){
+		 if(g_p71a > 2.00 && g_p71a < 4.60 && g_p71b >= 1.60 && g_p71b <= 2.10 && g_p71c >= 2 && g_p71d >= 3.49 && g_p71d <= 3.81 && 
+				 g_p71e == F[0] && F[0] > 2 && g_p71f > 3 && p71g.equals("胜") && g_p71h > 4){
 			 if(colc == "") colc = "PF5"; else colc += "、PF5";
 		 }
 				 
 		 //项目72-D1
 		 double g_p72a = g_p17d;
-		 rowdata.add(g_p72a == F[0] & F[0] > 2? "Yes":"No");
+		 rowdata.add(g_p72a == F[0] && F[0] > 2? "Yes":"No");
 		 double g_p72b = Dx.Match_Condition(15, "np<=2.5&1.005<nx");
 		 rowdata.add((int)g_p72b+"个");
-		 if(g_p72a == F[0] & F[0] > 2 & g_p72b > 6){
+		 if(g_p72a == F[0] && F[0] > 2 && g_p72b > 6){
 			 if(colc == "") colc = "D1"; else colc += "、D1";
 		 }
 				 
@@ -1473,7 +1437,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add(p73d);
 		 double g_p73e = Dx.Match_Condition(20, "1.00<px");
 		 rowdata.add((int)g_p73e+"个");
-		 if((g_p73a > 4 | g_p73b > 4) & p73c.equals("小") & p73d.equals("小") & g_p73e > 10){
+		 if((g_p73a > 4 | g_p73b > 4) && p73c.equals("小") && p73d.equals("小") && g_p73e > 10){
 			 if(colc == "") colc = "D2"; else colc += "、D2";
 		 }
 				 
@@ -1490,7 +1454,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add(p76e);
 		 double g_p76f = 5-Fx.Match_Condition(5, "s3");
 		 rowdata.add((int)g_p76f+"场");
-		 if(g_p76a >= 1.75 & g_p76a <= 2.00 & g_p76b > 0.6 & g_p76c >= 1 & p76d.equals("胜") & p76e.equals("胜") & g_p76f >= 3){
+		 if(g_p76a >= 1.75 && g_p76a <= 2.00 && g_p76b > 0.6 && g_p76c >= 1 && p76d.equals("胜") && p76e.equals("胜") && g_p76f >= 3){
 			 if(colc == "") colc = "PF6"; else colc += "、PF6";
 		 }
 		 
@@ -1511,7 +1475,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add(g_p80a == -1? "N/A":(int)g_p80a + "");
 		 double g_p80b = Yz.Match_Condition(10, "np=-1&1.005<nlw");
 		 rowdata.add((int)g_p80b + "个");
-		 if(g_p80a == 1 & g_p80b > 2){
+		 if(g_p80a == 1 && g_p80b > 2){
 			 if(colc == "") colc = "YQXP7"; else colc += "、YQXP7";
 		 }
 		 
@@ -1524,29 +1488,29 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add(g_p81c == -10? "-":PanK[(int)((g_p81c + 4) / 0.25)]);
 		 double g_p81d = Yz.Company_state("澳门", "nlw");
 		 rowdata.add(g_p81d > 0? df.format(g_p81d):"-");
-		 if(g_p81a == 2 & g_p81b == 2 & g_p81c <= 0 & g_p81c >= -0.5 & g_p81d > 0.975){
+		 if(g_p81a == 2 && g_p81b == 2 && g_p81c <= 0 && g_p81c >= -0.5 && g_p81d > 0.975){
 			 if(colc == "") colc = "ZP18"; else colc += "、ZP18";
 		 }
 		 
 		 //项目82-FS5
-		 double g_p82a = g_p61a;
+		 double g_p82a = Fx.Series(10, "s5");;
 		 rowdata.add((int)g_p82a+"场");
 		 double g_p82b = Yz.Match_Condition(10, "pp=-0.25&np=-0.5&1.005<nlw");
 		 rowdata.add((int)g_p82b+"个");
 		 double g_p82c = g_p58c;
 		 rowdata.add((int)g_p82c+"个");
-		 if(g_p82a > 3 & g_p82b > 4 & g_p82c >= 2){
+		 if(g_p82a > 3 && g_p82b > 4 && g_p82c >= 2){
 			 if(colc == "") colc = "FS5"; else colc += "、FS5";
 		 }
 				 
 		 //项目83-FS6
 		 double g_p83a = g_p19a;
-		 rowdata.add(g_p83a == F[0] & F[0] > 2? "Yes":"No");
+		 rowdata.add(g_p83a == F[0] && F[0] > 2? "Yes":"No");
 		 double g_p83b = Yz.Match_Condition(15, "pp=-0.25&np=-0.5&1.005<nlw");
 		 rowdata.add((int)g_p83b + "个");
 		 double g_p83c = Oz.Match_Condition(10, "3.30<=nl");
 		 rowdata.add((int)g_p83c + "个");
-		 if(g_p83a == F[0] & F[0] > 2 & g_p83b > 4 & g_p83c >= 8){
+		 if(g_p83a == F[0] && F[0] > 2 && g_p83b > 4 && g_p83c >= 8){
 			 if(colc == "") colc = "FS6"; else colc += "、FS6";
 		 }
 		 	 
@@ -1561,7 +1525,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p85d+"个");
 		 double g_p85e = Yz.Match_Condition(12, "1.005<nlw");
 		 rowdata.add((int)g_p85e+"个");
-		 if(g_p85a >= 2 & g_p85b >= 2 & g_p85c > 6 & g_p85d > 5 & g_p85e >= 2){
+		 if(g_p85a >= 2 && g_p85b >= 2 && g_p85c > 6 && g_p85d > 5 && g_p85e >= 2){
 			 if(colc == "") colc = "ZP10"; else colc += "、ZP10";
 		 }
 		 
@@ -1574,12 +1538,12 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add(g_p86c > 0? df.format(g_p86c) : "-");
 		 double temp86a = Oz.Company_state("威廉希尔", "nd");
 		 double temp86b = Oz.Company_state("威廉希尔", "pd");
-		 double g_p86d = temp86a > 0 & temp86b > 0? temp86a - temp86b : 10;
+		 double g_p86d = temp86a > 0 && temp86b > 0? temp86a - temp86b : 10;
 		 g_p86d = (double)Math.round(g_p86d * 100) / 100;
 		 rowdata.add(g_p86d != 10? df.format(g_p86d) : "-");
 		 double g_p86e = Oz.Company_state("立博", "nd");
 		 rowdata.add(g_p86e > 0? df.format(g_p86e) : "-");
-		 if(g_p86a == 0 & g_p86b >= 1.3 & g_p86c >= 3.40 & g_p86d <= -0.2 & g_p86e >= 3.50){
+		 if(g_p86a == 0 && g_p86b >= 1.3 && g_p86c >= 3.40 && g_p86d <= -0.2 && g_p86e >= 3.50){
 			 if(colc == "") colc = "ZP3K"; else colc += "、ZP3K";
 		 }
 				 
@@ -1595,8 +1559,8 @@ public class Lists implements ItemListener,ActionListener
 		 double g_p87e = Fx.GP_Condition(4, "zg5=0&kg5=0");
 		 rowdata.add((int)g_p87e+"场");
 		 double g_p87f = Fx.Match_Condition((int)F[0], "d1");
-		 rowdata.add((int)g_p87f == F[0] & F[0] != 0? "Yes":"No");
-		 if(g_p87a >= 2 & g_p87b >= 1 & g_p87c == 0 & g_p87d >= 1 & g_p87e == 0 & g_p87f == F[0] & F[0] != 0){
+		 rowdata.add((int)g_p87f == F[0] && F[0] != 0? "Yes":"No");
+		 if(g_p87a >= 2 && g_p87b >= 1 && g_p87c == 0 && g_p87d >= 1 && g_p87e == 0 && g_p87f == F[0] && F[0] != 0){
 			 if(colc == "") colc = "S4"; else colc += "、S4";
 		 }
 				 
@@ -1617,15 +1581,15 @@ public class Lists implements ItemListener,ActionListener
 		 double g_p89d = Oz.Company_state("威廉希尔", "nd");
 		 rowdata.add(df.format(g_p89d)); //3.49<=x<=3.8);
 		 double g_p89e = F[0]-Fx.Match_Condition((int)F[0], "f1");
-		 rowdata.add(g_p89e == F[0] & F[0] > 2? "Yes":"No");
+		 rowdata.add(g_p89e == F[0] && F[0] > 2? "Yes":"No");
 		 double g_p89f = Yz.Match_Condition(10, "1.005<nlw");
 		 rowdata.add((int)g_p89f + "个");
 		 String p89g = Fx.Get_SF("f4", 0);
 		 rowdata.add(p89g);
 		 double g_p89h = Oz.Match_Condition(10, "nw<pw&pd<nd");
 		 rowdata.add((int)g_p89h + "个");
-		 if(g_p89a > 2.00 & g_p89b >= 1.60 & g_p89b <= 2.10 & g_p89c >= 2 & g_p89d >= 3.49 & g_p89d <= 3.81 &  g_p89e == F[0] & F[0] > 2 & 
-				 g_p89f > 3 & p89g.equals("胜") & g_p89h > 4){
+		 if(g_p89a > 2.00 && g_p89b >= 1.60 && g_p89b <= 2.10 && g_p89c >= 2 && g_p89d >= 3.49 && g_p89d <= 3.81 &&  g_p89e == F[0] && F[0] > 2 && 
+				 g_p89f > 3 && p89g.equals("胜") && g_p89h > 4){
 		 if(colc == "") colc = "KP2"; else colc += "、KP2";
 		 }
 		 
@@ -1634,9 +1598,9 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p90a + "场");
 		 double g_p90b = Fx.Series(10, "f5");
 		 rowdata.add((int)g_p90b + "场");
-		 double g_p90c = Yz.Match_Condition(10, "np=-0.5&1.005<nrw");
+		 double g_p90c = Yz.Match_Condition(10, "np=-0.5&1.005<nlw");
 		 rowdata.add((int)g_p90c + "个");
-		 if(g_p90a >= 2 & g_p90b >= 2 & g_p90c > 2){
+		 if(g_p90a >= 2 && g_p90b >= 2 && g_p90c > 2){
 			 if(colc == "") colc = "PF21"; else colc += "、PF21";
 		 }
 				 
@@ -1653,7 +1617,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p91e + "个");
 		 double g_p91f = Yz.Match_Condition(10, "pp=0.25&np=0.5");
 		 rowdata.add((int)g_p91f + "个");
-		 if(p91a.equals("平") & p91b.equals("平") & g_p91c > 2.00 & g_p91d >= 1.60 & g_p91d <= 2.10 & g_p91e > 2 & g_p91f > 4){
+		 if(p91a.equals("平") && p91b.equals("平") && g_p91c > 2.00 && g_p91d >= 1.60 && g_p91d <= 2.10 && g_p91e > 2 && g_p91f > 4){
 			 if(colc == "") colc = "ZP14"; else colc += "、ZP14";
 		 }
 		 
@@ -1664,7 +1628,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p92b + "场");
 		 double g_p92c = Yz.Match_Condition(10, "np<-0.25&-10<np");
 		 rowdata.add((int)g_p92c + "个");
-		 if(g_p92a >= 2 & g_p92b >= 2 & g_p92c > 4){
+		 if(g_p92a >= 2 && g_p92b >= 2 && g_p92c > 4){
 			 if(colc == "") colc = "ZP21"; else colc += "、ZP21";
 		 }
 		 
@@ -1675,7 +1639,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p93b + "场");
 		 double g_p93c = Yz.Match_Condition(10, "np=-0.25&1.005<nrw");
 		 rowdata.add((int)g_p93c + "个");
-		 if(g_p93a >= 2 & g_p93b >= 2 & g_p93c > 4){
+		 if(g_p93a >= 2 && g_p93b >= 2 && g_p93c > 4){
 			 if(colc == "") colc = "ZP22"; else colc += "、ZP22";
 		 }
 		 
@@ -1686,11 +1650,11 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p94b + "场");
 		 double g_p94c = Yz.Match_Condition(10, "0.25<np&np<1&1.005<nrw");
 		 rowdata.add((int)g_p94c + "个");
-		 if(g_p94a >= 2 & g_p94b >= 2 & g_p94c > 2){
+		 if(g_p94a >= 2 && g_p94b >= 2 && g_p94c > 2){
 			 if(colc == "") colc = "ZP23"; else colc += "、ZP23";
 		 }
 		 
-		 //项目96-ZP25
+		 //项目96-SF6
 		 double g_p96a = Fx.Match_Condition(4, "p4") + Fx.Match_Condition(4, "f4");
 		 rowdata.add((int)g_p96a + "场");
 		 double g_p96b = Fx.Match_Condition(4, "p5") + Fx.Match_Condition(4, "s5");
@@ -1699,8 +1663,8 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p96c + "场");
 		 double g_p96d = Yz.Match_Condition(10, "-0.5<np&np<0.25&1.005<nrw");
 		 rowdata.add((int)g_p96d + "个");
-		 if(g_p96a == 4 & g_p96b == 4 & g_p96c > 1 & g_p96d > 4){
-			 if(colc == "") colc = "ZP25"; else colc += "、ZP25";
+		 if(g_p96a == 4 && g_p96b == 4 && g_p96c > 1 && g_p96d > 4){
+			 if(colc == "") colc = "SF6"; else colc += "、SF6";
 		 }
 						 
 		 //项目97-ZP1
@@ -1712,36 +1676,19 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p97c + "场");
 		 double g_p97d = Fx.Match_Condition(4, "s4");
 		 rowdata.add((int)g_p97d + "场");
-		 if(g_p97a >= 2 & g_p97b == 4 & g_p97c >= 2 & g_p97d >= 2){
+		 if(g_p97a >= 2 && g_p97b == 4 && g_p97c >= 2 && g_p97d >= 2){
 			 if(colc == "") colc = "ZP1"; else colc += "、ZP1";
-		 }
-				 
-		 //项目98-SF3
-		 double g_p98a = Oz.Match_Condition(20, "nd=nw");
-		 rowdata.add((int)g_p98a + "个");
-		 double g_p98b = Oz.Match_Condition(20, "nd=nw&nd<3.26&nw<3.26") == g_p98a & g_p98a >= 4? 1:0;
-		 rowdata.add(g_p98b == 1? "Yes":"No");
-		 double g_p98c = Yz.Match_Condition(10, "1.005<=nlw");
-		 rowdata.add((int)g_p98c + "个");
-		 double g_p98d = 4 - Fx.Match_Condition(4, "s4");
-		 rowdata.add((int)g_p98d + "场");
-		 double g_p98e = Fx.Match_Condition(4, "f4");
-		 rowdata.add((int)g_p98e + "场");
-		 double g_p98f = Fx.Match_Condition(4, "s5");
-		 rowdata.add((int)g_p98f + "场");
-		 if(g_p98a >= 4 & g_p98b == 1 & g_p98c >= 2 & g_p98d == 4 & g_p98e >= 2 & g_p98f >= 2){
-			 if(colc == "") colc = "SF3"; else colc += "、SF3";
 		 }
 		 
 		 //项目99-BL
 		 double temp99a = Oz.Company_state("威廉希尔", "nd");
 		 double temp99b = Oz.Company_state("立博", "nd");
-		 double g_p99a = temp99a > 0 & temp99b > 0? temp99a - temp99b : -10;
+		 double g_p99a = temp99a > 0 && temp99b > 0? temp99a - temp99b : -10;
 		 g_p99a = (double)Math.round(g_p99a * 100) / 100;
 		 rowdata.add(g_p99a != -10? g_p99a + "" : "-");
 		 double g_p99b = Yz.Match_Condition(10, "1.005<nlw");
 		 rowdata.add((int)g_p99b + "个");
-		 if(g_p99a > 0.1 & g_p99b >= 1){
+		 if(g_p99a > 0.1 && g_p99b >= 1){
 			 if(colc == "") colc = "BL"; else colc += "、BL";
 		 }
 			
@@ -1754,12 +1701,12 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add(g_p100c > 0? df.format(g_p100c) : "-");
 		 double temp100a = Oz.Company_state("威廉希尔", "nd");
 		 double temp100b = Oz.Company_state("立博", "nd");
-		 double g_p100d = temp100a > 0 & temp100b > 0? temp100a - temp100b : -10;
+		 double g_p100d = temp100a > 0 && temp100b > 0? temp100a - temp100b : -10;
 		 g_p100d = (double)Math.round(g_p100d * 100) / 100;
 		 rowdata.add(g_p100d != -10? df.format(g_p100d) : "-");
 		 double g_p100e = Yz.Match_Condition(10, "1.005<nlw");
 		 rowdata.add((int)g_p100e + "个");
-		 if(g_p100a == 0 & g_p100b >= 1.3 & g_p100c >= 3.40 & g_p100d > 0 & g_p100e > 2){
+		 if(g_p100a == 0 && g_p100b >= 1.3 && g_p100c >= 3.40 && g_p100d > 0 && g_p100e > 2){
 			 if(colc == "") colc = "ZP3K1"; else colc += "、ZP3K1";
 		 }
 		 
@@ -1774,7 +1721,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p101d + "个");
 		 double g_p101e = Oz.Match_Condition(10, "3.50<nd");
 		 rowdata.add((int)g_p101e + "个");
-		 if(g_p101a == 2 & g_p101b == 2 & g_p101c > 3 & g_p101d > 2 & g_p101e > 4){
+		 if(g_p101a == 2 && g_p101b == 2 && g_p101c > 3 && g_p101d > 2 && g_p101e > 4){
 			 if(colc == "") colc = "FS1"; else colc += "、FS1";
 		 }
 			
@@ -1804,7 +1751,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p104f + "场");
 		 double g_p104g = Yz.Match_Condition(10, "nrw<0.8");
 		 rowdata.add((int)g_p104g + "个");
-		 if(g_p104a == 2 & g_p104b == 2 & g_p104c <= 0 & g_p104c >= -0.5 & g_p104d > 0.975 & g_p104e == 3 & g_p104f > 1 & g_p104g >= 1){
+		 if(g_p104a == 2 && g_p104b == 2 && g_p104c <= 0 && g_p104c >= -0.5 && g_p104d > 0.975 && g_p104e == 3 && g_p104f > 1 && g_p104g >= 1){
 			 if(colc == "") colc = "ZP18ZP2K"; else colc += "、ZP18ZP2K";
 		 }
 		 
@@ -1815,25 +1762,27 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p105b + "场");
 		 double g_p105c = Yz.Match_Condition(10, "np=0.5&1.005<nrw");
 		 rowdata.add((int)g_p105c + "个");
-		 if(g_p105a >= 2 & g_p105b >= 2 & g_p105c >= 4){
+		 double g_p105d = Oz.Match_Condition(10, "nl<pl");
+		 rowdata.add((int)g_p105d + "个");
+		 if(g_p105a >= 2 && g_p105b >= 2 && g_p105c >= 4 && g_p105d > 5){
 			 if(colc == "") colc = "ZP26"; else colc += "、ZP26";
 		 }
 		 
-		 //项目112-PF11
-		 double g_p112a = 6 - Fx.Match_Condition(6, "s5");
-		 rowdata.add((int)g_p112a + "场");
-		 double g_p112b = Fx.Match_Condition(6, "f5");
-		 rowdata.add((int)g_p112b + "场");
-		 double g_p112c = 3 - Fx.Match_Condition(3, "s4");
-		 rowdata.add((int)g_p112c + "场");
-		 double g_p112d = Oz.Match_Condition(10, "pw<nw&nl<pl");
-		 rowdata.add((int)g_p112d + "个");
-		 double g_p112e = AveO10[0];
-		 rowdata.add(df.format(g_p112e));
-		 double g_p112f = Oz.Match_Condition(10, "3.40<=nd");
-		 rowdata.add((int)g_p112f + "个");
-		 if(g_p112a == 6 & g_p112b > 2 & g_p112c == 3 & g_p112d > 6 & g_p112e > 1.80 & g_p112f > 5){
-			 if(colc == "") colc = "PF11"; else colc += "、PF11";
+		 //项目106-P6
+		 String p106a = Fx.Get_SF("s4", 0);
+		 rowdata.add(p106a);
+		 String p106b = Fx.Get_SF("s5", 0);
+		 rowdata.add(p106b);
+		 double g_p106c = O[15];
+		 rowdata.add((int)g_p106c + "个");
+		 double g_p106d = O[16];
+		 rowdata.add((int)g_p106d + "个");
+		 double g_p106e = Oz.Match_Condition(10, "nd<=3.30");
+		 rowdata.add((int)g_p106e + "个");
+		 double g_p106f = Dx.Match_Condition(10, "1.00<nd");
+		 rowdata.add((int)g_p106f + "个");
+		 if(p106a.equals("负") && p106b.equals("胜") && g_p106c > 2 && g_p106d > 5 && g_p106e > 6 && g_p106f > 5){
+			 if(colc == "") colc = "P6"; else colc += "、P6";
 		 }
 				 
 		 //项目114-QDBS7
@@ -1847,7 +1796,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p114d + "个");
 		 double g_p114e = Oz.Match_Condition(10, "nw<pw");
 		 rowdata.add((int)g_p114e + "个");
-		 if(g_p114a >= 4 & g_p114b >= 3 & g_p114c > 2 & g_p114d >= 2 & g_p114e > 6){
+		 if(g_p114a >= 4 && g_p114b >= 3 && g_p114c > 2 && g_p114d >= 2 && g_p114e > 6){
 			 if(colc == "") colc = "QDBS7"; else colc += "、QDBS7";
 		 }
 				 
@@ -1860,7 +1809,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add(p115c);
 		 double g_p115d = Oz.Match_Condition(10, "nl<pl");
 		 rowdata.add((int)g_p115d + "个");
-		 if(g_p115a > 5 & g_p115b >= 2 & p115c.equals("胜") & g_p115d > 6){
+		 if(g_p115a > 5 && g_p115b >= 2 && p115c.equals("胜") && g_p115d > 6){
 			 if(colc == "") colc = "YK1"; else colc += "、YK1";
 		 }
 		 	 
@@ -1879,7 +1828,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add(p117f);
 		 String p117g = Fx.Get_SF("s1", 0);
 		 rowdata.add(p117g);
-		 if(g_p117a > 3 & g_p117b > 3 & g_p117c > 5 & g_p117d > 2 & g_p117e >= 1 & (p117f.equals("负")|p117g.equals("负"))){
+		 if(g_p117a > 3 && g_p117b > 3 && g_p117c > 5 && g_p117d > 2 && g_p117e >= 1 && (p117f.equals("负")|p117g.equals("负"))){
 			 if(colc == "") colc = "Z2"; else colc += "、Z2";
 		 }
 				 		 
@@ -1890,7 +1839,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p118b + "个");
 		 double g_p118c = Oz.Match_Condition(10, "nd=nw");
 		 rowdata.add((int)g_p118c + "个");
-		 if(g_p118a > 3.60 & g_p118b > 5 & g_p118c >= 1 & leixing == 2){
+		 if(g_p118a > 3.60 && g_p118b > 5 && g_p118c >= 1 && leixing == 2){
 		 	 if(colc == "") colc = "Z3"; else colc += "、Z3";
 		 }
 		 
@@ -1901,7 +1850,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p124b + "个");
 		 double g_p124c = Oz.Match_Condition(10, "nd=nl");
 		 rowdata.add((int)g_p124c + "个");
-		 if(g_p124a > 3.60 & g_p124b > 5 & g_p124c >= 1 & leixing == 2){
+		 if(g_p124a > 3.60 && g_p124b > 5 && g_p124c >= 1 && leixing == 2){
 			 if(colc == "") colc = "K7"; else colc += "、K7";
 		 }
 			
@@ -1914,7 +1863,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add(df.format(g_p126c) + "");
 		 String p126d = Fx.Get_SF("s4", 0);
 		 rowdata.add(p126d);
-		 if(g_p126a > 4 & g_p126b >= 3 & g_p126c > 4.0 & p126d.equals("胜")){
+		 if(g_p126a > 4 && g_p126b >= 3 && g_p126c > 4.0 && p126d.equals("胜")){
 			 if(colc == "") colc = "ZP19"; else colc += "、ZP19";
 		 }
 				 
@@ -1925,7 +1874,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p127b + "个");
 		 double g_p127c = AveO10[2];
 		 rowdata.add(df.format(g_p127c) + "");
-		 if(g_p127a < 1.80 & g_p127a > 0 & g_p127b >= 2 & g_p127c < 3.50 & leixing == 2){
+		 if(g_p127a < 1.80 && g_p127a > 0 && g_p127b >= 2 && g_p127c < 3.50 && leixing == 2){
 			 if(colc == "") colc = "Z11"; else colc += "、Z11";
 		 }
 		
@@ -1940,7 +1889,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add(p128d);
 		 String p128e = Fx.Get_SF("s1", 0);
 		 rowdata.add(p128e);
-		 if(g_p128a > 4 & g_p128b >= 3 & p128c.equals("负") & p128d.equals("胜") &  p128e.equals("胜")){
+		 if(g_p128a > 4 && g_p128b >= 3 && p128c.equals("负") && p128d.equals("胜") &&  p128e.equals("胜")){
 			 if(colc == "") colc = "Z8"; else colc += "、Z8";
 		 }
 				 
@@ -1953,7 +1902,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p130c + "个");
 		 double g_p130d = Oz.Match_Condition(10, "3.40<nd");
 		 rowdata.add((int)g_p130d + "个");
-		 if(g_p130a == 6 & (p130b.equals("胜")|p130b.equals("平")) & g_p130c >= 4 & g_p130d >= 5){
+		 if(g_p130a == 6 && (p130b.equals("胜")|p130b.equals("平")) && g_p130c >= 4 && g_p130d >= 5){
 			 if(colc == "") colc = "F2"; else colc += "、F2";
 		 }
 				 
@@ -1972,7 +1921,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add(df.format(g_p133f));
 		 double g_p133g = Oz.Company_state("Ladbrokes (立博)", "nd");
 		 rowdata.add(df.format(g_p133g));
-		 if(g_p133a >= 4 & g_p133b >= 4 & g_p133c > 1 & ((g_p133d>=1.80&g_p133e>3.60)|(g_p133d>=1.75&g_p133e>3.80)) &  ((g_p133f>=1.80&g_p133g>3.60)|(g_p133f>=1.75&g_p133g>3.80))){
+		 if(g_p133a >= 4 && g_p133b >= 4 && g_p133c > 1 && ((g_p133d>=1.80&g_p133e>3.60)|(g_p133d>=1.75&g_p133e>3.80)) &&  ((g_p133f>=1.80&g_p133g>3.60)|(g_p133f>=1.75&g_p133g>3.80))){
 			 if(colc == "") colc = "F4"; else colc += "、F4";
 		 }
 				 
@@ -1985,7 +1934,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p137c + "个");
 		 double g_p137d = Yz.Match_Condition(10, "np=-0.5&1.005<nlw");
 		 rowdata.add((int)g_p137d + "个");
-		 if(g_p137a >= 4 & g_p137b >= 4 & g_p137c >= 2 & g_p137d > 4){
+		 if(g_p137a >= 4 && g_p137b >= 4 && g_p137c >= 2 && g_p137d > 4){
 			 if(colc == "") colc = "F5"; else colc += "、F5";
 		 }
 				 
@@ -2000,7 +1949,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p138d + "个");
 		 double g_p138e = Yz.Match_Condition(10, "1.005<nlw");
 		 rowdata.add((int)g_p138e + "个");
-		 if(g_p138a >= 4 & g_p138b >= 4 & g_p138c >= 3 & g_p138d >= 1 & g_p138e > 4){
+		 if(g_p138a >= 4 && g_p138b >= 4 && g_p138c >= 3 && g_p138d >= 1 && g_p138e > 4){
 			 if(colc == "") colc = "PF13"; else colc += "、PF13";
 		 }
 				 
@@ -2015,7 +1964,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p139d + "个");
 		 double g_p139e = Yz.Match_Condition(10, "prw<0.90");
 		 rowdata.add((int)g_p139e + "个");
-		 if(g_p139a >= 2 & g_p139b > 5 & g_p139c == 3 & g_p139c > 0 & g_p139d > 3 & g_p139e > 7 & leixing == 2){
+		 if(g_p139a >= 2 && g_p139b > 5 && g_p139c == 3 && g_p139c > 0 && g_p139d > 3 && g_p139e > 7 && leixing == 2){
 			 if(colc == "") colc = "KDBS2"; else colc += "、KDBS2";
 		 }
 				 
@@ -2036,7 +1985,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p141g + "个");
 		 double g_p141h = Oz.Match_Condition(10, "3.40<=nd");
 		 rowdata.add((int)g_p141h + "个");
-		 if((p141a.equals("平")|p141a.equals("负")) & p141b.equals("胜") & g_p141c > 8 & g_p141d > 6 & g_p141e > 5 & g_p141f > 5 & g_p141g >= 2 & g_p141h >= 3){
+		 if((p141a.equals("平")|p141a.equals("负")) && p141b.equals("胜") && g_p141c > 8 && g_p141d > 6 && g_p141e > 5 && g_p141f > 5 && g_p141g >= 2 && g_p141h >= 3){
 			 if(colc == "") colc = "Z7"; else colc += "、Z7";
 		 }
 				 
@@ -2049,7 +1998,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add(p142c);
 		 String p142d = Fx.Get_SF("s4", 0);
 		 rowdata.add(p142d);
-		 if(g_p142a < 1.80 & g_p142a > 0 & g_p142b >= 5 & (p142c.equals("平")|p142c.equals("负"))& p142d.equals("胜") & leixing == 2){
+		 if(g_p142a < 1.80 && g_p142a > 0 && g_p142b >= 5 && (p142c.equals("平")|p142c.equals("负"))& p142d.equals("胜") && leixing == 2){
 			 if(colc == "") colc = "ZS2"; else colc += "、ZS2";
 		 }
 				 
@@ -2060,7 +2009,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p144b + "个");
 		 double g_p144c = AveO10[0]; 
 		 rowdata.add(df.format(g_p144c) + "");
-		 if(g_p144a < 1.80 & g_p144a > 0 & g_p144b >= 2 & g_p144c < 3.80 & leixing == 2){
+		 if(g_p144a < 1.80 && g_p144a > 0 && g_p144b >= 2 && g_p144c < 3.80 && leixing == 2){
 			 if(colc == "") colc = "ZP15"; else colc += "、ZP15";
 		 }
 		 
@@ -2077,7 +2026,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p145e + "个");
 		 double g_p145f = Yz.Match_Condition(10, "1.005<nlw");
 		 rowdata.add((int)g_p145f + "个");
-		 if(g_p145a >= 3 & (p145b.equals("胜")|p145b.equals("平")) & (p145c.equals("平")|p145c.equals("负")) & g_p145d > 5 & g_p145e >= 4 & g_p145f >= 2){
+		 if(g_p145a >= 3 && (p145b.equals("胜")|p145b.equals("平")) && (p145c.equals("平")|p145c.equals("负")) && g_p145d > 5 && g_p145e >= 4 && g_p145f >= 2){
 			 if(colc == "") colc = "Z"; else colc += "、Z";
 		 }
 				 
@@ -2090,7 +2039,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p147c + "个");
 		 double g_p147d = Oz.Match_Condition(10, "nd<3.30");
 		 rowdata.add((int)g_p147d + "个");
-		 if(g_p147a > 3 & g_p147b >= 1 & g_p147c > 6 & g_p147d > 8){
+		 if(g_p147a > 3 && g_p147b >= 1 && g_p147c > 6 && g_p147d > 8){
 			 if(colc == "") colc = "P3"; else colc += "、P3";
 		 }
 				 
@@ -2101,23 +2050,8 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p149b + "个");
 		 double g_p149c = Oz.Match_Condition(10, "nd<3.30");
 		 rowdata.add((int)g_p149c + "个");
-		 if(g_p149a > 6 & g_p149b > 4 & g_p149c > 8){
+		 if(g_p149a > 6 && g_p149b > 4 && g_p149c > 8){
 			 if(colc == "") colc = "ZP16"; else colc += "、ZP16";
-		 }
-				 
-		 //项目150-P5
-		 double g_p150a = Fx.Series((int)F[0], "s1");
-		 rowdata.add((int)g_p150a + "场");
-		 double g_p150b = Fx.Series(10, "s4");
-		 rowdata.add((int)g_p150b + "场");
-		 double g_p150c = Oz.Match_Condition(10, "pw<nw");
-		 rowdata.add((int)g_p150c + "个");
-		 double g_p150d = Oz.Match_Condition(10, "nd<3.30");
-		 rowdata.add((int)g_p150d + "个");
-		 double g_p150e = Yz.Match_Condition(10, "np=-0.5&1.005<nlw");
-		 rowdata.add((int)g_p150e + "个");
-		 if(g_p150a >= 2 & g_p150b >= 2 & g_p150c > 6 & g_p150d > 8 & g_p150e > 4){
-			 if(colc == "") colc = "P5"; else colc += "、P5";
 		 }
 				 
 		 //项目151-BF
@@ -2138,7 +2072,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p153d + "个");
 		 double g_p153e = Yz.Match_Condition(10, "nlw<1.005");
 		 rowdata.add((int)g_p153e + "个");
-		 if(g_p153a <= 1 & g_p153b > 8 & g_p153c > 6 & g_p153d > 4 & g_p153e > 8){
+		 if(g_p153a <= 1 && g_p153b > 8 && g_p153c > 6 && g_p153d > 4 && g_p153e > 8){
 			 if(colc == "") colc = "ZP11"; else colc += "、ZP11";
 		 }
 				 
@@ -2147,44 +2081,8 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p154a + "个");
 		 double g_p154b = Dx.Match_Condition(10, "pp<np&nd<pd");
 		 rowdata.add((int)g_p154b + "个");
-		 if(g_p154a > 5 & g_p154b > 2){
+		 if(g_p154a > 5 && g_p154b > 2){
 			 if(colc == "") colc = "QDXP5"; else colc += "、QDXP5";
-		 }
-				 
-		 //项目156-F9
-		 double g_p156a = 3-Fx.Match_Condition(3, "f1");
-		 rowdata.add((int)g_p156a + "场");
-		 double g_p156b = Fx.Match_Condition(3, "s1");
-		 rowdata.add((int)g_p156b + "场");
-		 double g_p156c = 6-Fx.Match_Condition(6, "f4");
-		 rowdata.add((int)g_p156c + "场");
-		 double g_p156d = Fx.Match_Condition(6, "s4");
-		 rowdata.add((int)g_p156d + "场");
-		 double g_p156e = Oz.Match_Condition(10, "nw<pw");
-		 rowdata.add((int)g_p156e + "个");
-		 double g_p156f = AveO10[0];
-		 rowdata.add(df.format(g_p156f));
-		 double g_p156g = Oz.Match_Condition(10, "3.70<nd");
-		 rowdata.add((int)g_p156g + "个");
-		 double g_p156h = Yz.Match_Condition(10, "1.005<nlw");
-		 rowdata.add((int)g_p156h + "个");
-		 if(g_p156a == 3 & g_p156b >= 2 & g_p156c == 6 & g_p156d >= 3 & g_p156e > 3 & g_p156f > 1.70 & g_p156g >= 2 & g_p156h >= 3){
-			 if(colc == "") colc = "F9"; else colc += "、F9";
-		 }
-		 
-		 //项目159-PF8
-		 double g_p159a = 10 - Fx.Match_Condition(10, "s4");
-		 rowdata.add((int)g_p159a + "场");
-		 String p159b = Fx.Get_SF("s5", 0);
-		 rowdata.add(p159b);
-		 double g_p159c = Yz.Match_Condition(10, "pp<np&nrw<prw");
-		 rowdata.add((int)g_p159c + "个");
-		 double g_p159d = Fx.Match_Condition(5, "s5");
-		 rowdata.add((int)g_p159d + "场");
-		 String p159e = Fx.Get_SF("s1", 0);
-		 rowdata.add(p159e);
-		 if(g_p159a == 10 & p159b.equals("胜") & g_p159c > 3 & g_p159d >= 3 & (p159e.equals("平")|p159e.equals("负"))){
-			 if(colc == "") colc = "PF8"; else colc += "、PF8";
 		 }
 		 
 		 //项目160-Z10
@@ -2196,7 +2094,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add(p160c);
 		 double g_p160d = Oz.Match_Condition(10, "nl=nd&3.20<nd&3.20<nl");
 		 rowdata.add((int)g_p160d + "个");
-		 if(g_p160a == 10 & p160b.equals("负") & p160c.equals("负") & g_p160d >= 1){
+		 if(g_p160a == 10 && p160b.equals("负") && p160c.equals("负") && g_p160d >= 1){
 			 if(colc == "") colc = "Z10"; else colc += "、Z10";
 		 }
 		 
@@ -2211,7 +2109,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add(df.format(g_p163d));
 		 double g_p163e = Oz.Match_Condition(10, "3.50<nd");
 		 rowdata.add((int)g_p163e + "个");
-		 if(g_p163a == 10 & g_p163b >= 4 & g_p163c > 8 & g_p163d > 1.80 & g_p163e > 5){
+		 if(g_p163a == 10 && g_p163b >= 4 && g_p163c > 8 && g_p163d > 1.80 && g_p163e > 5){
 			 if(colc == "") colc = "PF7"; else colc += "、PF7";
 		 }
 		 
@@ -2230,7 +2128,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p167f + "个");
 		 double g_p167g = Yz.Match_Condition(10, "1.005<nrw");
 		 rowdata.add((int)g_p167g + "个");
-		 if(g_p167a == 2 & g_p167b == 2 & g_p167c == 2 & g_p167d > 6 & g_p167e > 7 & g_p167f > 8 & g_p167g < 3){
+		 if(g_p167a == 2 && g_p167b == 2 && g_p167c == 2 && g_p167d > 6 && g_p167e > 7 && g_p167f > 8 && g_p167g < 3){
 			 if(colc == "") colc = "SF4"; else colc += "、SF4";
 		 }
 		 
@@ -2243,7 +2141,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add(df.format(g_p169c));
 		 String p169d = Fx.Get_SF("s4", 0);
 		 rowdata.add(p169d);
-		 if(g_p169a > 4 & g_p169b >= 3 & g_p169c > 4.0 & p169d.equals("负")){
+		 if(g_p169a > 4 && g_p169b >= 3 && g_p169c > 4.0 && p169d.equals("负")){
 			 if(colc == "") colc = "QDBS9"; else colc += "、QDBS9";
 		 }
 		 
@@ -2262,26 +2160,9 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p179f + "个");
 		 double g_p179g = Oz.Match_Condition(10, "nd=nl");
 		 rowdata.add((int)g_p179g + "个");
-		 if(g_p179a == 2 & g_p179b == 2 & g_p179c == 2 & g_p179d >= 3 & g_p179e >= 4 &
-				 g_p179f >= 2 & g_p179g > 1){
+		 if(g_p179a == 2 && g_p179b == 2 && g_p179c == 2 && g_p179d >= 3 && g_p179e >= 4 &
+				 g_p179f >= 2 && g_p179g > 1){
 			 if(colc == "") colc = "F10"; else colc += "、F10";
-		 }
-		 
-		 //项目185-PF4
-		 double g_p185a = Fx.Series(10, "s1");
-		 rowdata.add((int)g_p185a + "场");
-		 double g_p185b = 3-Fx.Match_Condition(3, "f4");
-		 rowdata.add((int)g_p185b + "场");
-		 double g_p185c = Fx.Match_Condition(3, "s4");
-		 rowdata.add((int)g_p185c + "场");
-		 double g_p185d = 3-Fx.Match_Condition(3, "s5");
-		 rowdata.add((int)g_p185d + "场");
-		 double g_p185e = Yz.Match_Condition(10, "pp=-0.25&1.005<plw") + Yz.Match_Condition(10, "pp=-0.5&1.005<plw");
-		 rowdata.add((int)g_p185e + "个");
-		 double g_p185f = Yz.Match_Condition(10, "np=-0.25&1.005<nlw") + Yz.Match_Condition(10, "np=-0.5&1.005<nlw");
-		 rowdata.add((int)g_p185f + "个");
-		 if(g_p185a >= 2 & g_p185b == 3 & g_p185c >= 2 & g_p185d == 3 & g_p185e > 3 & g_p185f > 2){
-			 if(colc == "") colc = "PF4"; else colc += "、PF4";
 		 }
 		 
 		 //项目188-F7
@@ -2300,7 +2181,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p188e + "个");
 		 double g_p188f = Yz.Match_Condition(10, "nrw<0.95");
 		 rowdata.add((int)g_p188f + "个");
-		 if(g_p188a >= 2 & g_p188b > 20 & g_p188c > 20 & g_p188d > 0 & g_p188e > 8 & g_p188f > 8){
+		 if(g_p188a >= 2 && g_p188b > 20 && g_p188c > 20 && g_p188d > 0 && g_p188e > 8 && g_p188f > 8){
 			 if(colc == "") colc = "F7"; else colc += "、F7";
 		 }
 		 
@@ -2309,7 +2190,7 @@ public class Lists implements ItemListener,ActionListener
 		 rowdata.add((int)g_p189a + "个");
 		 double g_p189b = Yz.Match_Condition(10, "1.005<nlw");
 		 rowdata.add((int)g_p189b + "个");
-		 if(g_p189a >= 2 & g_p189b > 5){
+		 if(g_p189a >= 2 && g_p189b > 5){
 			 if(colc == "") colc = "D3"; else colc += "、D3";
 		 }
 		 
@@ -2446,7 +2327,7 @@ public class Lists implements ItemListener,ActionListener
 	{
 		try {
 			 Q.clear();
-			 Q.add(new InfoStore("-"));
+			 Q.add(new InfoStore("-","-","-","-","-","-","-","-"));
 			 if(start_over) 
 	   			   return;
 			 String[] r = set_pre();
@@ -2519,7 +2400,7 @@ public class Lists implements ItemListener,ActionListener
 	{
 		try {
 			 Q.clear();
-			 Q.add(new InfoStore("-"));
+			 Q.add(new InfoStore("-","-","-","-","-","-","-","-"));
 			 if(start_over)
 	   			  return;
 			 String[] r = set_pre();
@@ -2548,16 +2429,17 @@ public class Lists implements ItemListener,ActionListener
 		   		 if(rowdata0 == null)
 		   			 continue;
 		   		 String[] rowdata = rowdata0.toArray(new String[rowdata0.size()]);
+		   		 //System.out.println(rowdata[2] + "   " + count);
 		   		 String strs;
 		   		 for(int i = 0 ; i < Titles.Head.length ; i++)
 		   		 {
 		   			 if(start_over)
 			   			 break;
-		   			 String match_num = table.getValueAt(count-1, 0).toString();
+		   			 //String match_num = table.getValueAt(count-1, 0).toString();
 		   			 if(table.getValueAt(count-1, i) == null)
 		   				 break;
 		   			 strs = table.getValueAt(count-1, i).toString();
-		   			 if(!strs.equals(rowdata[i]) & match_num.equals(rowdata[0]))
+		   			 if(!strs.equals(rowdata[i]))
 		   			 {
 		   				 /*System.out.println(table.getColumnName(i));
 		   				 System.out.println("原场次：" + table.getValueAt(count-1, 2).toString());
@@ -2615,7 +2497,7 @@ public class Lists implements ItemListener,ActionListener
 					count2 = 0;
 					nd = 20;
 					while(count2 < 20){
-						if(ny == y & nm == m && nd > d)
+						if(ny == y && nm == m && nd > d)
 						{
 							count2++;
 							nd--;
@@ -2727,7 +2609,7 @@ public class Lists implements ItemListener,ActionListener
 	    	   hide_show_column(col,str);
     	   }
     	   else if(source == CheckBox.t10){
-	    	   String[] col = {Titles.h10_1,Titles.h10_2,Titles.h10_3,Titles.h10_4,Titles.h10_5,Titles.h10_6};
+	    	   String[] col = {Titles.h10_1,Titles.h10_2,Titles.h10_3,Titles.h10_4};
 	    	   hide_show_column(col,str);
     	   }
     	   else if(source == CheckBox.t11){
@@ -2743,7 +2625,7 @@ public class Lists implements ItemListener,ActionListener
 	    	   hide_show_column(col,str);
     	   }
     	   else if(source == CheckBox.t14){
-	    	   String[] col = {Titles.h14_1,Titles.h14_2,Titles.h14_3,Titles.h14_4};
+	    	   String[] col = {Titles.h14_1,Titles.h14_2,Titles.h14_3,Titles.h14_4,Titles.h14_5};
 	    	   hide_show_column(col,str);
     	   }
     	   else if(source == CheckBox.t15){
@@ -2759,7 +2641,7 @@ public class Lists implements ItemListener,ActionListener
 	    	   hide_show_column(col,str);
     	   }
     	   else if(source == CheckBox.t18){
-	    	   String[] col = {Titles.h18_1,Titles.h18_2,Titles.h18_3,Titles.h18_4};
+	    	   String[] col = {Titles.h18_1,Titles.h18_2,Titles.h18_3,Titles.h18_4,Titles.h18_5};
 	    	   hide_show_column(col,str);
     	   }
     	   else if(source == CheckBox.t19){
@@ -2771,8 +2653,7 @@ public class Lists implements ItemListener,ActionListener
 	    	   hide_show_column(col,str);
     	   }
     	   else if(source == CheckBox.t21){
-	    	   String[] col = {Titles.h21_1,Titles.h21_2,Titles.h21_3,Titles.h21_4,Titles.h21_5,
-	    			   Titles.h21_6,Titles.h21_7};
+	    	   String[] col = {Titles.h21_1,Titles.h21_2,Titles.h21_3,Titles.h21_4};
 	    	   hide_show_column(col,str);
     	   }
     	   else if(source == CheckBox.t22){
@@ -2793,7 +2674,7 @@ public class Lists implements ItemListener,ActionListener
 	    	   hide_show_column(col,str);
     	   }
     	   else if(source == CheckBox.t26){
-	    	   String[] col = {Titles.h26_1,Titles.h26_2};
+	    	   String[] col = {Titles.h26_1,Titles.h26_2,Titles.h26_3,Titles.h26_4,Titles.h26_5};
 	    	   hide_show_column(col,str);
     	   }
     	   else if(source == CheckBox.t27){
@@ -2845,10 +2726,6 @@ public class Lists implements ItemListener,ActionListener
 	    	   String[] col = {Titles.h38_1,Titles.h38_2,Titles.h38_3};
 	    	   hide_show_column(col,str);
     	   }
-    	   else if(source == CheckBox.t39){
-	    	   String[] col = {Titles.h39_1,Titles.h39_2,Titles.h39_3,Titles.h39_4,Titles.h39_5};
-	    	   hide_show_column(col,str);
-    	   }
     	   else if(source == CheckBox.t40){
 	    	   String[] col = {Titles.h40_1,Titles.h40_2,Titles.h40_3,Titles.h40_4,Titles.h40_5};
 	    	   hide_show_column(col,str);
@@ -2882,7 +2759,11 @@ public class Lists implements ItemListener,ActionListener
 	    	   hide_show_column(col,str);
     	   }
     	   else if(source == CheckBox.t48){
-	    	   String[] col = {Titles.h48_1,Titles.h48_2,Titles.h48_3,Titles.h48_4,Titles.h48_5,Titles.h48_6};
+	    	   String[] col = {Titles.h48_1,Titles.h48_2,Titles.h48_3,Titles.h48_4};
+	    	   hide_show_column(col,str);
+    	   }
+    	   else if(source == CheckBox.t49){
+	    	   String[] col = {Titles.h49_1,Titles.h49_2,Titles.h49_3,Titles.h49_4,Titles.h49_5,Titles.h49_6};
 	    	   hide_show_column(col,str);
     	   }
     	   else if(source == CheckBox.t50){
@@ -2902,11 +2783,7 @@ public class Lists implements ItemListener,ActionListener
 	    	   hide_show_column(col,str);
     	   }
     	   else if(source == CheckBox.t54){
-	    	   String[] col = {Titles.h54_1,Titles.h54_2,Titles.h54_3,Titles.h54_4,Titles.h54_5,Titles.h54_6};
-	    	   hide_show_column(col,str);
-    	   }
-    	   else if(source == CheckBox.t55){
-	    	   String[] col = {Titles.h55_1,Titles.h55_2,Titles.h55_3,Titles.h55_4,Titles.h55_5,Titles.h55_6};
+	    	   String[] col = {Titles.h54_1,Titles.h54_2,Titles.h54_3,Titles.h54_4};
 	    	   hide_show_column(col,str);
     	   }
     	   else if(source == CheckBox.t56){
@@ -2925,14 +2802,6 @@ public class Lists implements ItemListener,ActionListener
 	    	   String[] col = {Titles.h59_1,Titles.h59_2,Titles.h59_3,Titles.h59_4,Titles.h59_5};
 	    	   hide_show_column(col,str);
     	   }
-    	   else if(source == CheckBox.t60){
-	    	   String[] col = {Titles.h60_1,Titles.h60_2,Titles.h60_3};
-	    	   hide_show_column(col,str);
-    	   }
-    	   else if(source == CheckBox.t61){
-	    	   String[] col = {Titles.h61_1,Titles.h61_2,Titles.h61_3,Titles.h61_4};
-	    	   hide_show_column(col,str);
-    	   }
     	   else if(source == CheckBox.t62){
 	    	   String[] col = {Titles.h62_1,Titles.h62_2,Titles.h62_3};
 	    	   hide_show_column(col,str);
@@ -2947,10 +2816,6 @@ public class Lists implements ItemListener,ActionListener
     	   }
     	   else if(source == CheckBox.t65){
 	    	   String[] col = {Titles.h65_1,Titles.h65_2,Titles.h65_3};
-	    	   hide_show_column(col,str);
-    	   }
-    	   else if(source == CheckBox.t67){
-	    	   String[] col = {Titles.h67_1,Titles.h67_2,Titles.h67_3};
 	    	   hide_show_column(col,str);
     	   }
     	   else if(source == CheckBox.t68){
@@ -3055,10 +2920,6 @@ public class Lists implements ItemListener,ActionListener
 	    	   String[] col = {Titles.h97_1,Titles.h97_2,Titles.h97_3,Titles.h97_4};
 	    	   hide_show_column(col,str);
     	   }
-    	   else if(source == CheckBox.t98){
-	    	   String[] col = {Titles.h98_1,Titles.h98_2,Titles.h98_3,Titles.h98_4,Titles.h98_5,Titles.h98_6};
-	    	   hide_show_column(col,str);
-    	   }
     	   else if(source == CheckBox.t99){
 	    	   String[] col = {Titles.h99_1,Titles.h99_2};
 	    	   hide_show_column(col,str);
@@ -3084,11 +2945,11 @@ public class Lists implements ItemListener,ActionListener
 	    	   hide_show_column(col,str);
     	   }
     	   else if(source == CheckBox.t105){
-	    	   String[] col = {Titles.h105_1,Titles.h105_2,Titles.h105_3};
+	    	   String[] col = {Titles.h105_1,Titles.h105_2,Titles.h105_3,Titles.h105_4};
 	    	   hide_show_column(col,str);
     	   }
-    	   else if(source == CheckBox.t112){
-	    	   String[] col = {Titles.h112_1,Titles.h112_2,Titles.h112_3,Titles.h112_4,Titles.h112_5,Titles.h112_6};
+    	   else if(source == CheckBox.t106){
+	    	   String[] col = {Titles.h106_1,Titles.h106_2,Titles.h106_3,Titles.h106_4,Titles.h106_5,Titles.h106_6};
 	    	   hide_show_column(col,str);
     	   }
     	   else if(source == CheckBox.t114){
@@ -3167,10 +3028,6 @@ public class Lists implements ItemListener,ActionListener
 	    	   String[] col = {Titles.h149_1,Titles.h149_2,Titles.h149_3};
 	    	   hide_show_column(col,str);
     	   }
-	       else if(source == CheckBox.t150){
-	    	   String[] col = {Titles.h150_1,Titles.h150_2,Titles.h150_3,Titles.h150_4,Titles.h150_5};
-	    	   hide_show_column(col,str);
-    	   }
 	       else if(source == CheckBox.t151){
 	    	   String[] col = {Titles.h151_1};
 	    	   hide_show_column(col,str);
@@ -3181,14 +3038,6 @@ public class Lists implements ItemListener,ActionListener
     	   }
 	       else if(source == CheckBox.t154){
 	    	   String[] col = {Titles.h154_1,Titles.h154_2};
-	    	   hide_show_column(col,str);
-    	   }
-	       else if(source == CheckBox.t156){
-	    	   String[] col = {Titles.h156_1,Titles.h156_2,Titles.h156_3,Titles.h156_4,Titles.h156_5,Titles.h156_6,Titles.h156_7,Titles.h156_8};
-	    	   hide_show_column(col,str);
-    	   }
-	       else if(source == CheckBox.t159){
-	    	   String[] col = {Titles.h159_1,Titles.h159_2,Titles.h159_3,Titles.h159_4,Titles.h159_5};
 	    	   hide_show_column(col,str);
     	   }
 	       else if(source == CheckBox.t160){
@@ -3209,10 +3058,6 @@ public class Lists implements ItemListener,ActionListener
     	   }
 	       else if(source == CheckBox.t179){
 	    	   String[] col = {Titles.h179_1,Titles.h179_2,Titles.h179_3,Titles.h179_4,Titles.h179_5,Titles.h179_6,Titles.h179_7};
-	    	   hide_show_column(col,str);
-    	   }
-	       else if(source == CheckBox.t185){
-	    	   String[] col = {Titles.h185_1,Titles.h185_2,Titles.h185_3,Titles.h185_4,Titles.h185_5,Titles.h185_6};
 	    	   hide_show_column(col,str);
     	   }
 	       else if(source == CheckBox.t188){
@@ -3346,7 +3191,7 @@ public class Lists implements ItemListener,ActionListener
 			}
 			else if(e.getSource() == Button5)
 			{
-				statistics.Display();
+				ds.s.Display();
 			}
 			else if(e.getSource() == Button6)
 			{
@@ -3488,7 +3333,7 @@ public class Lists implements ItemListener,ActionListener
 				count2 = 0;
 				nd = 20;
 				while(count2 < 20){
-					if(ny == y & nm == m && nd > d){
+					if(ny == y && nm == m && nd > d){
 						count2++;
 						nd--;
 						continue;

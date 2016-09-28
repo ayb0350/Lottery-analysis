@@ -689,13 +689,13 @@ public class Analysis {
 	   	{
 	   		String zan = this.DataBox_zz.get(t).get(Data.SF.GetPos());
 	   		//String zdx = this.DataBox_zz.get(t).get(Data.DX.GetPos());
-	   		int zgoal = Integer.parseInt(this.DataBox_zz.get(t).get(Data.ZG.GetPos()));
-   			int kgoal = Integer.parseInt(this.DataBox_zz.get(t).get(Data.KG.GetPos()));
+	   		int zgoal = (int) Common_Use.parsedata(this.DataBox_zz.get(t).get(Data.ZG.GetPos()), -1);
+   			int kgoal = (int) Common_Use.parsedata(this.DataBox_zz.get(t).get(Data.KG.GetPos()), -1);
 	   		if(sw_flag & zan.equals("胜"))
 	   			r4++;
 	   		if(r4 > 0 & !zan.equals("胜"))
 	   			sw_flag = false;
-	   		if(zgoal-kgoal <= 1 & t < 5)
+	   		if(zgoal-kgoal <= 1 & zgoal != -1 & kgoal != -1 & t < 5)
 	   			r6++;
 	   	}
 	   	//客队近10个客场盘口最大、最小值

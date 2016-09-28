@@ -18,20 +18,14 @@ public interface CheckBox {
 	JCheckBox t23 = new JCheckBox("条件—PB",false);
 	JCheckBox t29 = new JCheckBox("条件—PF1",false);
 	JCheckBox t40 = new JCheckBox("条件—PF2",false);
-	JCheckBox t185= new JCheckBox("条件—PF4",false);
+	JCheckBox t28 = new JCheckBox("条件—PF4",false);
 	JCheckBox t71 = new JCheckBox("条件—PF5",false);
 	JCheckBox t76 = new JCheckBox("条件—PF6",false);
 	JCheckBox t163= new JCheckBox("条件—PF7",false);
-	JCheckBox t159= new JCheckBox("条件—PF8",false);
 	JCheckBox t50 = new JCheckBox("条件—PF9",false);
 	JCheckBox t31 = new JCheckBox("条件—PF10",false);
-	JCheckBox t112= new JCheckBox("条件—PF11",false);
 	JCheckBox t8  = new JCheckBox("条件—PF12",false);
 	JCheckBox t138= new JCheckBox("条件—PF13",false);
-	JCheckBox t14 = new JCheckBox("条件—PF14",false);
-	JCheckBox t54 = new JCheckBox("条件—PF15",false);
-	JCheckBox t55 = new JCheckBox("条件—PF16",false);
-	JCheckBox t56 = new JCheckBox("条件—PF17",false);
 	JCheckBox t90 = new JCheckBox("条件—PF21",false);
 	JCheckBox t34 = new JCheckBox("条件—YQXP1",false);
 	JCheckBox t30 = new JCheckBox("条件—YQXP2",false);
@@ -39,26 +33,24 @@ public interface CheckBox {
 	JCheckBox t9  = new JCheckBox("条件—YQXP4",false);
 	JCheckBox t80 = new JCheckBox("条件—YQXP7",false);
 	JCheckBox t97 = new JCheckBox("条件—ZP1",false);
-	JCheckBox t10 = new JCheckBox("条件—ZP2",false);
 	JCheckBox t20 = new JCheckBox("条件—ZP3",false);
 	JCheckBox t53 = new JCheckBox("条件—ZP4",false);
 	JCheckBox t58 = new JCheckBox("条件—ZP5",false);
 	JCheckBox t65 = new JCheckBox("条件—ZP6",false);
-	JCheckBox t48 = new JCheckBox("条件—ZP8",false);
 	JCheckBox t85 = new JCheckBox("条件—ZP10",false);
 	JCheckBox t153= new JCheckBox("条件—ZP11",false);
 	JCheckBox t70 = new JCheckBox("条件—ZP13",false);
 	JCheckBox t91 = new JCheckBox("条件—ZP14",false);
 	JCheckBox t144= new JCheckBox("条件—ZP15",false);
 	JCheckBox t149= new JCheckBox("条件—ZP16",false);
-	JCheckBox t18 = new JCheckBox("条件—ZP17",false);
 	JCheckBox t81 = new JCheckBox("条件—ZP18",false);
 	JCheckBox t104= new JCheckBox("条件—ZP18ZP2K",false);
 	JCheckBox t126= new JCheckBox("条件—ZP19",false);
+	JCheckBox t54 = new JCheckBox("条件—ZP20",false);
 	JCheckBox t92 = new JCheckBox("条件—ZP21",false);
 	JCheckBox t93 = new JCheckBox("条件—ZP22",false);
 	JCheckBox t94 = new JCheckBox("条件—ZP23",false);
-	JCheckBox t96 = new JCheckBox("条件—ZP25",false);
+	JCheckBox t56 = new JCheckBox("条件—ZP24(QDXP)",false);
 	JCheckBox t105= new JCheckBox("条件—ZP26",false);
 	JCheckBox t86 = new JCheckBox("条件—ZP3K",false);
 	JCheckBox t100= new JCheckBox("条件—ZP3K1",false);
@@ -83,13 +75,13 @@ public interface CheckBox {
 	JCheckBox t63 = new JCheckBox("条件—SF",false);
 	JCheckBox t35 = new JCheckBox("条件—SF1",false);
 	JCheckBox t13 = new JCheckBox("条件—SF2",false);
-	JCheckBox t98 = new JCheckBox("条件—SF3",false);
 	JCheckBox t167= new JCheckBox("条件—SF4",false);
 	JCheckBox t25 = new JCheckBox("条件—SF5",false);
+	JCheckBox t96 = new JCheckBox("条件—SF6",false);
 	JCheckBox t115= new JCheckBox("条件—YK1",false);
 	JCheckBox t33 = new JCheckBox("条件—K",false);
+	JCheckBox t18 = new JCheckBox("条件—K1",false);
 	JCheckBox t37 = new JCheckBox("条件—K2",false);
-	JCheckBox t28 = new JCheckBox("条件—K3",false);
 	JCheckBox t124= new JCheckBox("条件—K7",false);
 	JCheckBox t145= new JCheckBox("条件—Z",false);
 	JCheckBox t19 = new JCheckBox("条件—Z1",false);
@@ -109,25 +101,25 @@ public interface CheckBox {
 	JCheckBox t38 = new JCheckBox("条件—Z16",false);
 	JCheckBox t57 = new JCheckBox("条件—Z17",false);
 	JCheckBox t62 = new JCheckBox("条件—Z18",false);
-	JCheckBox t21 = new JCheckBox("条件—F",false);
-	JCheckBox t67 = new JCheckBox("条件—F1",false);
+	JCheckBox t10 = new JCheckBox("条件—Z19",false);
+	JCheckBox t14 = new JCheckBox("条件—Z20",false);
+	JCheckBox t21 = new JCheckBox("条件—Z21",false);
+	JCheckBox t26 = new JCheckBox("条件—Z22",false);
+	JCheckBox t39 = new JCheckBox("条件—Z23",false);
+	JCheckBox t48 = new JCheckBox("条件—Z24",false);
+	JCheckBox t49 = new JCheckBox("条件—Z25",false);
 	JCheckBox t130= new JCheckBox("条件—F2",false);
 	JCheckBox t133= new JCheckBox("条件—F4",false);
 	JCheckBox t137= new JCheckBox("条件—F5",false);
 	JCheckBox t188= new JCheckBox("条件—F7",false);
-	JCheckBox t156= new JCheckBox("条件—F9",false);
 	JCheckBox t179= new JCheckBox("条件—F10",false);
 	JCheckBox t139= new JCheckBox("条件—KDBS2",false);
-	JCheckBox t26 = new JCheckBox("条件—P2",false);
 	JCheckBox t147= new JCheckBox("条件—P3",false);
-	JCheckBox t150= new JCheckBox("条件—P5",false);
-	JCheckBox t61 = new JCheckBox("条件—P7",false);
+	JCheckBox t106= new JCheckBox("条件—P6",false);
 	JCheckBox t151= new JCheckBox("条件—BF",false);
-	JCheckBox t39 = new JCheckBox("条件—PFP",false);
 	JCheckBox t43 = new JCheckBox("条件—KS",false);
 	JCheckBox t24 = new JCheckBox("条件—KS1",false);
 	JCheckBox t59 = new JCheckBox("条件—KS2",false);
-	JCheckBox t60 = new JCheckBox("条件—KS3",false);
 	JCheckBox t77 = new JCheckBox("条件—3Z1",false);
 	JCheckBox t78 = new JCheckBox("条件—3Z2",false);
 	JCheckBox t79 = new JCheckBox("条件—3K1",false);
@@ -136,12 +128,12 @@ public interface CheckBox {
 	JCheckBox t103= new JCheckBox("条件—2P2",false);
 	JCheckBox t99 = new JCheckBox("条件—BL",false);
 	
-    JCheckBox JBK[] = {t12,t3,t4,t7,t87,t88,t72,t73,t189,t15,t17,t16,t23,t29,t40,t185,t71,t76,t163,t159,t50,t31,
-    		t112,t8,t138,t14,t54,t55,t56,t90,t34,t30,t36,t9,t80,t97,t10,t20,t53,t58,t65,t48,t85,t153,t70,t91,t144,t149,
-    		t18,t81,t104,t126,t92,t93,t94,t96,t105,t86,t100,t1,t41,t42,t44,t45,t46,t51,t89,t142,t64,t154,t68,t11,t114,t169,t101,t82,t83,
-    		t63,t35,t13,t98,t167,t25,t115,t33,t37,t28,t124,t145,t19,t117,t118,t2,t5,t22,t141,
-    		t128,t6,t160,t127,t47,t52,t32,t38,t57,t62,t21,t67,t130,t133,t137,t188,t156,t179,t139,
-    		t26,t147,t150,t61,t151,t39,t43,t24,t59,t60,t77,t78,t79,t102,t27,t103,t99};
+    JCheckBox JBK[] = {t12,t3,t4,t7,t87,t88,t72,t73,t189,t15,t17,t16,t23,t29,t40,t28,t71,t76,t163,t50,t31,
+    		t8,t138,t90,t34,t30,t36,t9,t80,t97,t20,t53,t58,t65,t85,t153,t70,t91,t144,t149,
+    		t81,t104,t126,t54,t92,t93,t94,t56,t105,t86,t100,t1,t41,t42,t44,t45,t46,t51,t89,t142,t64,t154,t68,t11,t114,t169,t101,t82,t83,
+    		t63,t35,t13,t167,t25,t96,t115,t33,t18,t37,t124,t145,t19,t117,t118,t2,t5,t22,t141,
+    		t128,t6,t160,t127,t47,t52,t32,t38,t57,t62,t10,t14,t21,t26,t39,t48,t49,t130,t133,t137,t188,t179,t139,
+    		t147,t106,t151,t43,t24,t59,t77,t78,t79,t102,t27,t103,t99};
 
-	 JCheckBox JR[] = {t1,t24,t38,t55,t59,t118,t124,t127,t139,t142,t144};
+	 JCheckBox JR[] = {t1,t24,t38,t59,t118,t124,t127,t139,t142,t144};
 }

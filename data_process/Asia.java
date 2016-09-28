@@ -7,7 +7,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -309,7 +308,7 @@ public class Asia {
 	}
 	public double[] yazhi()
 	{
-		double r1 = 0, r2 = 0, r3 = 0, r4 = 0, r5 = 0,r6 = 0, r7 = 0, r8 = 0, r9 = 0;
+		double r1 = 0, r2 = 0, r3 = 0, r4 = 0, r5 = 0,r6 = 0, r7 = 0, r8 = 0, r9 = 0, r10 = 0, r11 = 0;
 	   	ArrayList<pak> array = new ArrayList<pak>();
 	   	ArrayList<pak> array1 = new ArrayList<pak>();
 	   	int count = -1;
@@ -399,13 +398,21 @@ public class Asia {
 	   		//1到10的公司初始盘口减去即时盘口大于等于0.25
 	   		if(pk0 - pk >= 0.25 & pk != -10 & pk0 != -10 & count < 10)
 	   			r9++;
+	   	    //1到10的公司中初始盘口减去即时盘口等于0.25
+	   		if(pk0 - pk == 0.25 & pk != -10 & pk0 != -10 & count < 10)
+	   			r10++;
+	   	    //1到10的公司中初始盘口减去即时盘口等于-0.25
+	   		if(pk0 - pk == -0.25 & pk != -10 & pk0 != -10 & count < 10)
+	   			r11++;
 	   		count++;
 	   	}
 	   	//[0]P3,[1]O,[2]即时盘口-初始盘口=0.25,两水>=1,[3]即时盘口-初始盘口<-0.5
 	   	//[4]即时盘－初盘≥0.25左水＞1.005 //[5]初盘-即时盘≥0.25 //[6]终盘-初盘≥0.25
 	   	//[7]即时盘口减去初始盘口等于0.25，并且即时盘口和初始盘口左边的水都小于1.000
 	   	//[8]1到10的公司初始盘口减去即时盘口大于等于0.25
-	   	double[] result = {r1,r2,r3,r4,r5,r6,r7,r8,r9};
+	   	//[9]1到10的公司初始盘口减去即时盘口等于0.25
+	   	//[10]1到10的公司初始盘口减去即时盘口等于-0.25
+	   	double[] result = {r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11};
 	   	return result;
 	}
 	

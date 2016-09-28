@@ -2,13 +2,15 @@ package data_process;
 
 import java.io.IOException;
 
-import data_process.Statistics;
 import display.Lists;
+import display.Statistics;
 
 public class DoSomething implements Runnable { 
 	public Statistics s;
-	public DoSomething(Statistics sta)
-	{s = sta;}
+	public DoSomething() throws IOException
+	{
+		s = new Statistics();
+	}
     public void run() { 
     	try {
     		this.s.textarea.append("数据更新中...\n");
@@ -24,5 +26,5 @@ public class DoSomething implements Runnable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    } 
+    }
 }
